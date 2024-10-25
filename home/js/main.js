@@ -865,6 +865,7 @@ function populateDropdown (ddl_ver, ddl_doc) {
             }
             break;
         case '/devicetracker/6-2':
+        case '/devicetracker/6-3':
             ddl_doc.options.length = 0;
             for (i=0; i < dt_6_2_text.length; i++) {
                 createOption(ddl_doc, dt_6_2_text[i], dt_6_2_val[i]);

@@ -71,7 +71,7 @@
                         <li class="navbar-text pull-left"><strong>TechDocs</strong></li>
                         <p class="navbar-text">
                                             Identity Guardian
-                                            1.5
+                                            1.6
                         </p>
 
                     </ul>
@@ -82,42 +82,42 @@
 
 
                         <li>
-                            <a href="/identityguardian/1-5/about">
+                            <a href="/identityguardian/1-6/about">
                                     About
                             </a>
                         </li>
                         <li>
-                            <a href="/identityguardian/1-5/setup">
+                            <a href="/identityguardian/1-6/setup">
                                     Setup
                             </a>
                         </li>
                         <li>
-                            <a href="/identityguardian/1-5/licensing">
+                            <a href="/identityguardian/1-6/licensing">
                                     Licensing
                             </a>
                         </li>
                         <li>
-                            <a href="/identityguardian/1-5/mc">
+                            <a href="/identityguardian/1-6/mc">
                                     Managed Configurations
                             </a>
                         </li>
                         <li>
-                            <a href="/identityguardian/1-5/usage">
+                            <a href="/identityguardian/1-6/usage">
                                     User Guide
                             </a>
                         </li>
                         <li>
-                            <a href="/identityguardian/1-5/api">
+                            <a href="/identityguardian/1-6/api">
                                     APIs
                             </a>
                         </li>
                         <li>
-                            <a href="/identityguardian/1-5/faq">
+                            <a href="/identityguardian/1-6/faq">
                                     FAQ
                             </a>
                         </li>
                         <li>
-                            <a href="/identityguardian/1-5/search">
+                            <a href="/identityguardian/1-6/search">
                                     <i class="fa fa-search"></i>
                             </a>
                         </li>
@@ -233,7 +233,7 @@
                                     <h1 id="setup" class="anchor"><a class="heading-anchor" href="#setup"><span></span></a>Setup</h1>
                                     <p>
                                             Identity Guardian
-                                            1.5
+                                            1.6
                                     </p>
                                 </div>
                             </section>                    
@@ -248,7 +248,7 @@
 
                                         <p></p><h2 id="overview" class="anchor"><a class="heading-anchor" href="#overview"><span></span></a>Overview</h2>
 
-<p>To install and configure <strong>Identity Guardian,</strong> use <a href="/zebradna">Zebra DNA Cloud</a> (navigate to My Apps &gt; Zebra Collection) or an Enterprise Mobility Management (EMM) system. Administrators establish usage policies and controls for Identity Guardian through <a href="../mc/">Managed Configurations</a>, enabling personalization of device restrictions and access. </p>
+<p>To install and configure <strong>Identity Guardian,</strong> use <a href="/zebradna">Zebra DNA Cloud</a> (navigate to My Apps &gt; Zebra Collection) or an Enterprise Mobility Management (EMM) system. Administrators establish usage policies and controls for Identity Guardian through <a href="../mc/">Managed Configurations</a>, enabling personalization of device restrictions and access.</p>
 
 <p>There are 2 modes of user device access:</p>
 
@@ -315,9 +315,9 @@
 
 
 <ul>
-<li><strong>Disable Automatic Updates -</strong> Submit the <a href="./Disable_AutoUpgrade_IG.xml">Disable_AutoUpgrade_IG.xml</a> through your EMM platform. </li>
+<li><strong>Disable Automatic Updates -</strong> Submit the <a href="./Disable_AutoUpgrade_IG.xml">Disable_AutoUpgrade_IG.xml</a> through your EMM platform.</li>
 
-<li><strong>Enable Automatic Updates -</strong> Submit the <a href="./Enable_AutoUpgrade_IG.xml">Enable_AutoUpgrade_IG.xml</a> through your EMM platform. </li></ul>
+<li><strong>Enable Automatic Updates -</strong> Submit the <a href="./Enable_AutoUpgrade_IG.xml">Enable_AutoUpgrade_IG.xml</a> through your EMM platform.</li></ul>
 </li>
 
 <li><strong><a href="https://www.zebra.com/us/en/support-downloads/software/mobile-computer-software/identity-guardian.html">Zebra support portal</a></strong></li>
@@ -325,9 +325,9 @@
 
 <hr>
 
-<h2 id="deviceaccesstypes" class="anchor"><a class="heading-anchor" href="#deviceaccesstypes"><span></span></a>Device Access Types</h2>
+<h2 id="deviceaccess" class="anchor"><a class="heading-anchor" href="#deviceaccess"><span></span></a>Device Access</h2>
 
-<p>There are 2 types of user device access: </p>
+<p>There are 2 types of user device access:</p>
 
 <ul>
 <li>Shared Device</li>
@@ -335,25 +335,351 @@
 <li>Personally Assigned Device</li>
 </ul>
 
+<p>For both types, users must first enroll in Identity Guardian before signing in to authenticate to the device.</p>
+
+<hr>
+
 <h3 id="shareddevice" class="anchor"><a class="heading-anchor" href="#shareddevice"><span></span></a>Shared Device</h3>
 
-<p>In environments where multiple users share a single device, Identity Guardian ensures secure and personalized access. It simplifies the authentication process, allowing users to control their data without storing personal information on the device or in the cloud. This is achieved by <strong>providing each user with a unique, encrypted barcode</strong> that stores their personal data. <strong>For enhanced security, multifactor authentication</strong> can be configured, including options such as a passcode, facial biometrics, and/or single sign-on (SSO). Alternatively, SSO can be established as the primary authentication instead of issuing individual barcodes.</p>
+<p>In environments where multiple users share a single device, Identity Guardian ensures secure and personalized access. Personalized experiences can be tailored based on each user's predefined organizational role. Users must first enroll with Identity Guardian before they can authenticate on a shared device. Shared devices can recognize an unlimited number of registered users.</p>
 
-<p>Shared devices can recognize an unlimited number of registered users. Personalized experiences can be tailered based on each user's predefined organizational role. User data is encrypted and stored within a unique barcode, located in the <code>/enterprise/usr/Profiles</code> folder, which the user can control. Users can simply discard the barcode to remove their personal data. Optionally, facial biometrics can be used to generate this barcode. For temporary user profiles, barcodes can be set to automatically expire at a specified date and time.</p>
+<p>There are 2 methods for enrolling users on shared devices:</p>
 
-<p><i class="fa fa-exclamation-triangle" style="color:#FFA500;"></i> <strong>Note:</strong> If a user loses their barcode, it can only be retrieved from the device, specifically from the folder: <code>/enterprise/usr/Profiles</code></p>
+<ul>
+<li><strong><a href="#standardenrollment">Standard</a> -</strong> Users enroll on a designated device based on the Enrollment profile deployed by administrators. Once enrolled, they can authenticate on their shared device, where the administrator has deployed the Authentication profile.</li>
+
+<li><strong><a href="#selfenrollment">Self-Enrollment</a> -</strong> Both enrollment and authentication are performed directly on the shared device, facilitated by a unified Authentication profile (which includes enrollment configurations) deployed by the administrator. SSO is used for user authentication.</li>
+</ul>
+
+<p>User data is encrypted and stored in a unique, encrypted barcode located in the <code>/enterprise/usr/Profiles</code> folder. This user barcode must be printed or shared within 24 hours before it is automatically deleted, ensuring that personal information is not stored on the device or in the cloud. Optionally, facial biometrics can be used to generate this barcode for enhanced security. For temporary user profiles, barcodes can be set to expire automatically at a specified date and time. Alternatively, SSO can be used as the primary authentication method instead of issuing individual barcodes.</p>
+
+<p>Once enrolled, users can authenticate on their shared device. <strong>For enhanced security, multifactor authentication</strong> can be configured, offering options such as a passcode, facial biometrics, and/or SSO. </p>
 
 <p><img alt="image" style="height:200px" src="shared-workflow.jpg"></p>
+
+<p><br></p>
+
+<h4 id="standardenrollment" class="anchor"><a class="heading-anchor" href="#standardenrollment"><span></span></a>Standard Enrollment</h4>
+
+<p>For shared devices using <strong>standard enrollment,</strong> users initially enroll on a designated device. After which they can authenticate on their shared device.</p>
+
+<p>Administrators must:</p>
+
+<ol>
+<li><strong>Create individual Enrollment and Authentication profiles</strong> to enable user enrollment and authentication.</li>
+
+<li>If barcode printing or sharing is required, <strong>install and configure the <a href="../usage/#printsharebarcode">Identity Guardian QR Print</a> app.</strong> </li>
+
+<li><strong>Deploy both Enrollment and Authentication profiles.</strong></li>
+
+<li><strong>Enroll users.</strong></li>
+</ol>
+
+<p>To accomplish this, follow these steps (see <a href="../setup/#emm">EMM Setup</a>):</p>
+
+<ol>
+<li><em>If barcode printing or sharing is required,</em> <strong>install and configure <a href="../usage/#printsharebarcode">IGQRPrint</a></strong> following the instructions.</li>
+
+<li><strong>Create an Enrollment profile:</strong>
+
+
+<ul>
+<li>Set up <a href="../mc/#enrollmentconfiguration">Enrollment Configurations</a> within Managed Configurations according to your enrollment requirements. 
+
+
+<ul>
+<li>If barcode printing or sharing is required, enable the option <strong>Allow opening barcode while enrollment.</strong></li></ul>
+</li>
+
+<li>Under <strong>Usage Mode,</strong> set <strong>Application Mode = ENROLLMENT.</strong></li>
+
+<li>Deploy the Enrollment profile and launch Identity Guardian on the device designated for enrolling users.</li>
+
+<li>Users would follow the prompts in Identity Guardian to complete the enrollment process. The available options depend on the profile settings configured by the administrator.</li></ul>
+</li>
+
+<li><strong>Create an Authentication profile:</strong>
+
+
+<ul>
+<li>Set up <a href="../mc/#authenticationconfiguration">Authentication Configuration</a> according to your requirements to enable user authentication and sign-in after enrollment is complete.</li>
+
+<li>Under <strong>Usage Mode,</strong> set <strong>Application Mode = AUTHENTICATION.</strong></li>
+
+<li>If barcode printing or sharing is required, in <strong><a href="../mc/#lockscreenconfiguration">Lock Screen Configuration</a>,</strong> add the package and activity names for the necessary <strong>Apps Allowed On Lock Screen</strong>.</li>
+
+<li>Configure other Managed Configuration settings as needed, such as Facial Authentication and SSO Authentication.</li>
+
+<li>Deploy the Authentication profile and launch Identity Guardian.</li></ul>
+</li>
+
+<li><strong>Authenticate the user.</strong> After users have enrolled, they can now authenticate and sign in to the device.</li>
+</ol>
+
+<p><br></p>
+
+<h4 id="selfenrollment" class="anchor"><a class="heading-anchor" href="#selfenrollment"><span></span></a>Self-Enrollment</h4>
+
+<p>For shared devices using <strong>self-enrollment,</strong> user enrollment and authentication take place directly on the shared device, facilitated by a unified Authentication profile (which includes enrollment configurations) deployed by the administrator, utilizing SSO for user authentication.</p>
+
+<p>Administrators must:</p>
+
+<ol>
+<li><strong>Create and deploy an Authentication profile to the devices,</strong> to enable user enrollment and authentication.</li>
+
+<li><strong>Install and configure the <a href="../usage/#printsharebarcode">Identity Guardian QR Print</a> app</strong> to allow barcode printing or sharing after enrollment.</li>
+
+<li><strong>Enroll users.</strong></li>
+</ol>
+
+<p>To accomplish this, follow these steps (see <a href="../setup/#emm">EMM Setup</a>):</p>
+
+<ol>
+<li><strong>Create an Authentication profile</strong> using <a href="../mc/">Managed Configurations</a>:
+
+
+<ul>
+<li>In <strong><a href="../mc/#usagemode">Usage Mode</a>,</strong> set:
+
+
+<ul>
+<li><strong>Application Mode:</strong> AUTHENTICATION</li></ul>
+</li>
+
+<li>Configure settings in <a href="../mc/#authenticationconfiguration">Authentication Configuration</a> from Managed Configurations. <i><strong>It is required to configure SSO as one of the verification methods.</strong></i></li>
+
+<li>In <strong><a href="../mc/#lockscreenconfiguration">Lock Screen Configuration</a>:</strong> Expand <strong>Lock Screen Menu &gt; Allow Self Enrollment</strong> and set the following options:
+
+
+<ul>
+<li><strong>Secure Self Enrollment:</strong> true</li>
+
+<li><strong>User Verification:</strong> SSO</li></ul>
+</li>
+
+<li>In <strong><a href="../mc/#lockscreenconfiguration">Lock Screen Configuration</a>,</strong> add the package and activity names for the necessary <strong>Apps Allowed On Lock Screen</strong>.</li>
+
+<li>Configure other Managed Configuration settings as needed, such as Facial Authentication and SSO Authentication.</li></ul>
+</li>
+
+<li><strong>Install and configure <a href="../usage/#printsharebarcode">IGQRPrint</a></strong> following the instructions.</li>
+
+<li><strong>Deploy the Authentication profile.</strong> Launch Identity Guardian as part of the deployment.</li>
+
+<li><strong>Guide users through enrollment.</strong> After launching Identity Guardian, users follow prompts to complete enrollment. Available options depend on the Authentication profile settings configured by the administrator.</li>
+</ol>
+
+<p>After enrollment is complete, users can <a href="../usage/#signinauthentication">authenticate and sign in</a> to the device.</p>
+
+<h4 id="printsharebarcode" class="anchor"><a class="heading-anchor" href="#printsharebarcode"><span></span></a>Print &amp; Share Barcode</h4>
+
+<blockquote>
+  <p><strong>Early Access Preview:</strong> Identity Guardian QR Print (IGQRPrint) app is available as an <em>Early Access Preview,</em> meaning this feature is subject to change in future releases.</p>
+</blockquote>
+
+<p>The <strong>Identity Guardian QR Print (IGQRPrint)</strong> app is a companion to Identity Guardian that streamlines the printing and sharing of user barcodes generated during enrollment, either standard or self-enrollment for <em>shared devices.</em> It enables barcode preview, resizing, and direct printing from the device to either a Zebra or non-Zebra printer. This allows barcodes to be quickly printed in a readable format for authentication and device user management. Barcodes can also be shared via Gmail, Google Drive, Bluetooth and other methods.</p>
+
+<p><strong>Setup Procedure:</strong> </p>
+
+<ol>
+<li><p>Install <a href="./IGQRPrint.apk" download="">IGQRPrint app.</a></p></li>
+
+<li><p>Connect the printer to the device (for WiFi printers, ensure both the printer and device are on the same network):</p>
+
+<p></p><ul>
+<li><strong>Zebra Card Printers -</strong> No additional steps needed.</li></ul><p></p>
+
+<p></p></li><li><strong>Other Zebra Printers -</strong> Install Zebra Print from Google Play and connect.</li><p></p>
+
+<p></p><li><strong>Non-Zebra Printers -</strong> Install the third-party printer service and connect.</li><p></p>
+
+<li><p>Configure IGQRPrint app if the preview is not suitable for printing or sharing. This is performed on each device. Select <strong>Settings</strong> from the top right menu. Adjust the settings and preview the barcode until satisfactory (retain default values unless instructed otherwise):<br>
+<strong>Cards Printing:</strong> <em>For Zebra card printers only.</em></p>
+
+<ul>
+<li><strong>Allow Card Printing -</strong> Toggle to enable card printing.</li>
+
+<li><strong>PrinterIP -</strong> Enter the IP address of the Zebra card printer.</li>
+
+<li><strong>Printer Port -</strong> Specify if not using the default.<br></li></ul>
+
+<p><strong>Share To Parameters:</strong> Adjust barcode size for printing and sharing.</p>
+
+<ul>
+<li><strong>Allow ShareTo -</strong> Toggle to enable non-card printing or sharing.</li>
+
+<li><strong>Margin (Mils) -</strong> Adjust the margins if the barcode is too large or close to the edges. The default is 10. Increasing this value decreases the barcode size.</li>
+
+<li><strong>Orientation -</strong> Choose Portrait or Landscape.</li></ul></li>
+
+<li><p>Configure <strong>Apps Allowed On Lock Screen</strong> from Managed Configuration settings and deploy this to the devices. </p></li>
+</ol>
+
+<p><strong>Apps Allowed On Lock Screen:</strong></p>
+
+<p>For added security, application package names for the print applications must be specified in <a href="../mc/#lockscreenconfiguration">Lock Screen Configuration</a> from Managed Configurations in order to allow the barcode to be printed or shared. Open <strong>Apps Allowed On Lock Screen</strong> and add the following Application Details as needed:</p>
+
+<table class="facelift" align="center" style="width:100%" border="1" padding="5px">
+<tbody><tr bgcolor="#dce8ef"> </tr></tbody></table><table class="table table-striped">
+    <tbody><tr>
+        <th style="width:30%">Purpose</th>
+        <th>Package Name</th>
+        <th>Activity Name</th>
+    </tr>
+    <tr>
+        <td rowspan="3">Display the barcode print preview</td>
+        <td>com.zebra.igqrprint</td>
+        <td>com.zebra.igqrprint.PreviewActivity</td>
+    </tr>
+    <tr>
+        <td>com.zebra.igqrprint</td>
+        <td>com.zebra.igqrprint.SettingsActivity</td>
+    </tr>
+    <tr>
+        <td>android</td>
+        <td>com.android.internal.app.ChooserActivity</td>
+    </tr>
+    <tr>
+        <td rowspan="2">Print the barcode</td>
+        <td>com.android.bips</td>
+        <td>ImagePrintActivity</td>
+    </tr>
+    <tr>
+        <td>com.android.printspooler</td>
+        <td>com.android.printspooler.ui.PrintActivity</td>
+    </tr>
+<!-- 
+    <tr>
+        <td ROWSPAN="3">Share the barcode via Gmail</td>
+        <td>com.google.android.gm</td>
+        <td>com.google.android.gm.ComposeActivityGmailExternal</td>
+    </tr>
+    <tr>
+        <td>com.google.android.gm</td>
+        <td>*</td>
+    </tr>
+    <tr>
+        <td>com.google.android.gms</td>
+        <td>*</td>
+    </tr>-->
+</tbody></table>
+
+
+<p>To share barcodes through apps, add the respective third-party package name and activity names. </p>
+
+<!-- * Add the Application Details for IGQRPrint app preview screen:
+    * **Package Name:** com.zebra.igqrprint
+    * **Activity Name:** com.zebra.igqrprint.PreviewActivity
+* Add the Application Details for IGQRPrint settings:
+    * **Package Name:** com.zebra.igqrprint
+    * **Activity Name:** com.zebra.igqrprint.SettingsActivity
+* To share barcodes, add the Application Details:
+    * **Package Name:** android
+    * **Activity Name:** com.android.internal.app.ChooseActivity
+* To print barcodes, add the Application Details:
+    * **Package Name:** com.android.bips
+    * **Activity Name:** ImagePrintActivity
+* To manage print jobs, add the Application Details:
+    * **Package Name:** com.android.printspooler
+    * **Activity Name:** com.android.printspooler.ui.PrintActivity
+* To share barcodes via Gmail, add the Application Details:
+    * **Package Name:** com.google.android.gm
+    * **Activity Name:** *
+-->
+
+<p><strong>Configure IGQRPrint app:</strong></p>
+
+<p>If the barcode displayed in the preview screen</p>
+
+<ol>
+<li><p>Open IGQRPrint app.</p></li>
+
+<li><p>From the top right menu, select <strong>Settings.</strong>
+<img alt="image" style="height:350px" src="printapp-menu.jpg"></p></li>
+
+<li><p>Configure settings (keep default values unless specified):<br>
+<strong>Cards Printing:</strong> For Zebra card printers.</p>
+
+<ul>
+<li><strong>Allow Card Printing -</strong> Toggle to enable card printing.</li>
+
+<li><strong>PrinterIP -</strong> Enter the IP address of the Zebra card printer.</li>
+
+<li><strong>Printer Port -</strong> Specify if not using the default.<br></li></ul>
+
+<p><strong>Share To Parameters:</strong> Adjust barcode size for card and paper printing.</p>
+
+<ul>
+<li><strong>Allow ShareTo -</strong> Toggle to enable non-card printing or sharing.</li>
+
+<li><strong>Margin (Mils) -</strong> Adjust margins if the barcode is too large or near the edges. The default is 10. Increasing this value decreases the barcode size.</li>
+
+<li><strong>Orientation -</strong> Choose Portrait or Landscape.
+<img alt="image" style="height:350px" src="printapp-settings.jpg"></li></ul></li>
+
+<li><p>Tap <strong>Save Settings</strong> at the bottom of the screen.</p></li>
+</ol>
+
+<!-- 
+4.  Printing and sharing options:<br />
+    - **Preview Card -** Preview a sample barcode based on the specified parameters.
+        - **User visibility -** Choose printout details:
+            - **Card -** Print barcode only.
+            - **Share To -** Print barcode with user information: barcode ID, company name, and user name to help administrators identify ownership.
+        - **Print Card -** For Zebra card printing.
+        - **Share -** Print or share the barcode.
+            - **Print -** Use Android print service to select and print to the connected printer. If multiple printers are available, choose from the dropdown next to the printer name. Tap the printer icon to print.
+            - **Share -** Select the method to share the barcode in PDF format, such as Gmail, Google Drive, Bluetooth, etc.
+    - **Save Settings -** Save changes.
+    - **Close Settings -** Exit without saving.
+-->
+
+<!--
+    **Processing Settings:**
+        * **Text Crop Width (pixels) -** Adjust according to username length to ensure proper QR code scaling.
+        * **In Between Margin (pixels) -** Default is 5 pixels to ensure optimal scanning performance by preventing the text from being too close to the QRCode. Increasing the value enlarges the margin between the QRCode and the text.<br /> 
+    **Share To Parameter:**
+        * **Width (Inches) -** Specifies the width or QR Barcode. Define label dimensions, use default value, 2. The larger the barcode, the smaller the barcode size.
+        * **Height (Inches) -** Define label dimensions, default is 2. Keep the default value, 2.
+        * **DPI:** Set according to printer specifications, use default of 210.
+ -->
+
+<p><br></p>
+
+<hr>
 
 <h3 id="personallyassigneddevice" class="anchor"><a class="heading-anchor" href="#personallyassigneddevice"><span></span></a>Personally Assigned Device</h3>
 
 <p>In environments where devices are assigned to specific users, these individuals <strong>retain control over their encrypted personal data</strong> and can delete it as needed. User data is safeguarded within the Android framework, <strong>stored in Identity Guardian's isolated storage,</strong> which is part of Android's access-controlled application platform. This ensures that even the organization itself cannot access the data.</p>
 
-<p>Identity Guardian integrates with identity providers (IdPs) to streamline the authentication process. It uses a single sign-on (SSO) system, requiring users to authenticate only once. This system manages security and simplifies access, <em>allowing users to log into multiple applications in a single session.</em> <strong>For enhanced security, administrators can customize multifactor authentication settings, including a passcodes, facial biometrics, and/or SSO.</strong> Unlike <em>shared devices,</em> <em>personally assigned devices</em> do not utilize barcodes.</p>
+<p>Identity Guardian integrates with identity providers (IdPs) to streamline the authentication process. It uses a single sign-on (SSO) system, requiring users to authenticate only once. This system manages security and simplifies access, <em>allowing users to log into multiple applications in a single session.</em> <strong>For enhanced security, administrators can customize multifactor authentication settings, including a passcode, facial biometrics, and/or SSO.</strong> Unlike <em>shared devices,</em> <em>personally assigned devices</em> do not utilize barcodes.</p>
 
 <p><img alt="image" style="height:200px" src="personal-workflow.jpg"></p>
 
 <!-- Subsequent device unlocks, reboot, etc. requires user entry based on setup : PIN, facial recognition, etc. -->
+
+<h4 id="profilesetup" class="anchor"><a class="heading-anchor" href="#profilesetup"><span></span></a>Profile Setup</h4>
+
+<p>For personally assigned devices, administrators should create a profile which encompasses both enrollment and authentication configurations by following these steps (see <a href="../setup/#emm">EMM Setup</a>):</p>
+
+<ol>
+<li><strong>Create a profile:</strong> 
+
+
+<ul>
+<li>Use <a href="../mc">Managed Configurations</a> to configure a profile. </li>
+
+<li>Under Usage Mode, set <strong>Application Mode = PERSONALLY ASSIGNED.</strong></li>
+
+<li>Configure all necessary <a href="../mc/">Managed Configuration</a> settings, such as Enrollment, Authentication, and SSO Authentication.</li></ul>
+</li>
+
+<li><strong>Deploy the profile.</strong> Launch Identity Guardian as part of the deployment. </li>
+
+<li><strong>Guide users through enrollment.</strong> Users would follow the prompts in Identity Guardian to complete the enrollment process. The available options depend on the profile settings configured by the administrator.</li>
+
+<li><strong>Authenticate the user.</strong> After enrollment is complete, users can authenticate and sign in to the device.</li>
+</ol>
 
 <hr>
 
@@ -390,7 +716,7 @@
 
 
 <ul>
-<li><strong>For <em>shared devices:</em></strong> 
+<li><strong>For <em>shared devices:</em></strong>
 
 
 <ul>
@@ -524,7 +850,7 @@
 
 
 <ul>
-<li>For the app configuration policy, first modify the <a href="./MS_Intune_sample.json" download="">sample Microsoft Intune JSON file</a> according to your desired settings. Refer to <a href="../mc/">Managed Configurations</a> to update the "value" field in the JSON file for each configuration option based on its key. For example, for the key <code>APPLICATION_MODE</code>, enter the value <code>ENROLLMENT</code> to enroll shared devices. Then, copy and paste the entire JSON content into the designated field as instructed in the video. 
+<li>For the app configuration policy, first modify the <a href="./MS_Intune_sample.json" download="">sample Microsoft Intune JSON file</a> according to your desired settings. Refer to <a href="../mc/">Managed Configurations</a> to update the "value" field in the JSON file for each configuration option based on its key. For example, for the key <code>APPLICATION_MODE</code>, enter the value <code>ENROLLMENT</code> to enroll shared devices. Then, copy and paste the entire JSON content into the designated field as instructed in the video.
 
 
 <ul>
@@ -546,7 +872,7 @@
 
 
 <ul>
-<li>For the app configuration policy, first modify the <a href="./MS_Intune_sample.json" download="">sample Microsoft Intune JSON file</a> according to your desired settings. Refer to <a href="../mc/">Managed Configurations</a> to update the "value" field in the JSON file for each configuration option based on its key. For example, for the key <code>APPLICATION_MODE</code>, enter the value <code>AUTHENTICATION</code> to authenticate shared devices. Then, copy and paste the entire JSON content into the designated field as instructed in the video. 
+<li>For the app configuration policy, first modify the <a href="./MS_Intune_sample.json" download="">sample Microsoft Intune JSON file</a> according to your desired settings. Refer to <a href="../mc/">Managed Configurations</a> to update the "value" field in the JSON file for each configuration option based on its key. For example, for the key <code>APPLICATION_MODE</code>, enter the value <code>AUTHENTICATION</code> to authenticate shared devices. Then, copy and paste the entire JSON content into the designated field as instructed in the video.
 
 
 <ul>
@@ -568,7 +894,7 @@
 
 <li>Automatically launching the app</li>
 
-<li>Creating a policy to configure the desired settings for enrollment and authentication </li>
+<li>Creating a policy to configure the desired settings for enrollment and authentication</li>
 </ol>
 
 <p><strong>Note:</strong> For <strong><em>shared devices,</em></strong> create two separate configuration profiles according to the selected <strong>Application Mode</strong> under the <strong><a href="../mc/#usagemode">Usage Mode</a></strong> section:</p>
@@ -600,6 +926,8 @@
 <p>For authenticating users with SSO, the Microsoft Authenticator and Custom Chrome Tabs are supported to communicate with SSO as the broker.</p>
 
 <p>See <a href="#requirements">SSO Requirements</a>.</p>
+
+<hr>
 
 <h3 id="microsoftentraid" class="anchor"><a class="heading-anchor" href="#microsoftentraid"><span></span></a>Microsoft Entra ID</h3>
 
@@ -975,6 +1303,8 @@
 
 <p>When a device gets updated with the new configurations, Zebra Identity Guardian activates the lock screen. The user is then required to authenticate themselves using Single Sign-On (SSO) to gain access to the device. See <a href="../usage/">User Guide</a> for more information.</p>
 
+<hr>
+
 <h3 id="okta" class="anchor"><a class="heading-anchor" href="#okta"><span></span></a>Okta</h3>
 
 <p>This section provides guidance to integrate Identity Guardian with Okta using OAuth 2.0 (OIDC) protocol.</p>
@@ -1032,23 +1362,14 @@
 <img alt="image" style="height:450px" src="okta-metadata.jpg"></li>
 
 <li>Record the following values needed in the next section:
-
-
-<ul>
-<li>authorizationScope</li>
-
-<li>end_session_endpoint (logoutURL)</li>
-
-<li>token_endpoint (tokenURL)</li>
-
-<li>authorization_endpoint (authorizationURL)</li>
-
-<li>userInfoUrl</li>
-
-<li>revokeURL (revocation_endpoint)
+_ authorizationScope
+_ end_session_endpoint (logoutURL)
+_ token_endpoint (tokenURL)
+_ authorization_endpoint (authorizationURL)
+_ userInfoUrl
+_ revokeURL (revocation_endpoint)
 <br>
-<br></li></ul>
-</li>
+<br></li>
 </ol>
 
 <h4 id="iiconfigurezebraidentityguardianapp" class="anchor"><a class="heading-anchor" href="#iiconfigurezebraidentityguardianapp"><span></span></a>II. Configure Zebra Identity Guardian App</h4>
@@ -1129,9 +1450,14 @@
 <li><strong>Verification Setup:</strong> [Enter the desired authentication scheme, e.g. "Verification Setup1"]</li></ul>
 </li>
 
-<li><strong>On user change:</strong> - <strong>Verification Setup:</strong> [Enter the desired authentication scheme, e.g. "Verification Setup1"]
+<li><strong>On user change:</strong> 
+
+
+<ul>
+<li><strong>Verification Setup:</strong> [Enter the desired authentication scheme, e.g. "Verification Setup1"]
 <img alt="image" style="height:400px" src="managed-config-lock-screen.jpg">
 <em>zDNA Cloud Managed Config</em></li></ul>
+</li></ul>
 </li>
 
 <li>Configure the SSO Authentication Configuration for the app to communicate with Microsoft SSO to authenticate the user:
@@ -1201,6 +1527,8 @@
 </ol>
 
 <p>When a device gets updated with the new configurations, Zebra Identity Guardian activates the lock screen. The user is then required to authenticate themselves using Single Sign-On (SSO) to gain access to the device. See <a href="../usage/">User Guide</a> for more information.</p>
+
+<p><br></p>
 
 <hr>
 

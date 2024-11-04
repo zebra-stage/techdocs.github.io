@@ -71,7 +71,7 @@
                         <li class="navbar-text pull-left"><strong>TechDocs</strong></li>
                         <p class="navbar-text">
                                             Identity Guardian
-                                            1.5
+                                            1.6
                         </p>
 
                     </ul>
@@ -82,42 +82,42 @@
 
 
                         <li>
-                            <a href="/identityguardian/1-5/about">
+                            <a href="/identityguardian/1-6/about">
                                     About
                             </a>
                         </li>
                         <li>
-                            <a href="/identityguardian/1-5/setup">
+                            <a href="/identityguardian/1-6/setup">
                                     Setup
                             </a>
                         </li>
                         <li>
-                            <a href="/identityguardian/1-5/licensing">
+                            <a href="/identityguardian/1-6/licensing">
                                     Licensing
                             </a>
                         </li>
                         <li>
-                            <a href="/identityguardian/1-5/mc">
+                            <a href="/identityguardian/1-6/mc">
                                     Managed Configurations
                             </a>
                         </li>
                         <li>
-                            <a href="/identityguardian/1-5/usage">
+                            <a href="/identityguardian/1-6/usage">
                                     User Guide
                             </a>
                         </li>
                         <li>
-                            <a href="/identityguardian/1-5/api">
+                            <a href="/identityguardian/1-6/api">
                                     APIs
                             </a>
                         </li>
                         <li>
-                            <a href="/identityguardian/1-5/faq">
+                            <a href="/identityguardian/1-6/faq">
                                     FAQ
                             </a>
                         </li>
                         <li>
-                            <a href="/identityguardian/1-5/search">
+                            <a href="/identityguardian/1-6/search">
                                     <i class="fa fa-search"></i>
                             </a>
                         </li>
@@ -233,7 +233,7 @@
                                     <h1 id="about-identity-guardian" class="anchor"><a class="heading-anchor" href="#about-identity-guardian"><span></span></a>About Identity Guardian</h1>
                                     <p>
                                             Identity Guardian
-                                            1.5
+                                            1.6
                                     </p>
                                 </div>
                             </section>                    
@@ -303,7 +303,52 @@ Using [managed configurations](../mc/) through Zebra’s DNA Cloud platform or E
 
 <hr>
 
-<h2 id="newin15" class="anchor"><a class="heading-anchor" href="#newin15"><span></span></a>New in 1.5</h2>
+<h2 id="newin16" class="anchor"><a class="heading-anchor" href="#newin16"><span></span></a>New in 1.6</h2>
+
+<ul>
+<li><strong>The <a href="../usage/#guardiansafe">Guardian Safe</a> feature is now officially released.</strong> It securely stores user credentials after a single entry on the login screen of any application, automatically filling in the credentials for future logins. <strong>Note:</strong> Use of Guardian Safe requires an Identity Guardian license.</li>
+
+<li><strong>The new <a href="../usage/#autofillssologin">Auto-Fill for SSO</a> feature stores SSO credentials for user authentication after the first sign-in,</strong> simplifying future logins by requiring entry only once and automatically filling them afterward.</li>
+
+<li><strong>Now securely <a href="../usage/#selfenrollment">self-enroll</a> new users directly from the Identity Guardian lock screen on devices configured for Authentication mode, using SSO for identity verification.</strong> This eliminates the need for switching the application mode between Enrollment and Authentication.</li>
+
+<li><strong>Early Access Preview:</strong> 
+<strong>The <a href="../usage/#printsharebarcode">Identity Guardian QR PRint (IGQRPrint)</a> app facilitates the immediate printing and sharing of barcodes after user enrollment, simplifying the process.</strong> To use this feature, a separate IGQR print application must be installed.</li>
+
+<li><strong>The new <a href="../usage/#proxymode">Proxy Mode</a> feature allows third-party apps to notify Identity Guardian of user check-in/check-out events,</strong> enabling this information to be shared with other Zebra apps like <a href="/devicetracker">Device Tracker</a> for user accountability. It is designed for organizations that use their own blocking screen apps for device access, who wish to track user accountability across Zebra apps.</li>
+
+<li><strong>Implemented enhancements to reduce initialization delays during user authentication,</strong> such as when unlocking the device or resuming from a suspended state.</li>
+
+<li><strong>Resolved Issues:</strong>
+
+
+<ul>
+<li>Identity Guardian now logs out the user when the device is locked and then connected to AC power.</li>
+
+<li>When a user signs into a device using their Microsoft Entra ID SSO credentials and the device is rebooted, the Lock-Screen Event options now correctly align with On Reboot events instead of On User Change events.</li></ul>
+</li>
+
+<li><strong>Known Issues:</strong>
+
+
+<ul>
+<li><strong>Uninstalling Identity Guardian from the lock screen disables the home button on the device.</strong> To remedy this, either reinstall Identity Guardian or set it to enrollment mode before uninstallation.</li>
+
+<li><strong>When installing Identity Guardian in enrollment mode from VMWare Workspace ONE UEM (AirWatch) EMM via Google Play, the authentication screen might appear instead of the expected enrollment screen.</strong> To prevent this, install, and configure the application from the VMWare private app store instead of the public play store.</li>
+
+<li><strong>When using Microsoft Entra ID for single sign-on (SSO), a new user is not automatically logged into Microsoft Associated apps following the sign out of a previous user.</strong> To address this, users can either relaunch the Microsoft Associates apps or enter the newly logged in user ID when prompted, ensuring a successful login.</li>
+
+<li><strong>A user authentication error might occur intermittently if a user attempts to cancel SSO authentication and then tries to re-authenticate.</strong> To resolve this, click on any button on the error screen to dismiss the error, allowing the user to proceed further.</li>
+
+<li><strong>When PingFed is used for single sign-on (SSO) and Identity Guardian is upgraded, users might experience a one-time issue preventing them from signing in on a shared device.</strong> This is overcome by rebooting the device, docking it on a cradle, or locking/unlocking the device based on the configuration set by the system administrator. This issue does not recur after the first sign-out attempt.</li></ul>
+</li>
+</ul>
+
+<hr>
+
+<h2 id="versionhistory" class="anchor"><a class="heading-anchor" href="#versionhistory"><span></span></a>Version History</h2>
+
+<h3 id="newin15" class="anchor"><a class="heading-anchor" href="#newin15"><span></span></a>New in 1.5</h3>
 
 <ul>
 <li><strong>Now supports <a href="../setup/#okta">OKTA</a> single sign-on (SSO) provider using OAuth 2.0 (OIDC) protocol for SSO authentication.</strong></li>
@@ -315,15 +360,15 @@ Using [managed configurations](../mc/) through Zebra’s DNA Cloud platform or E
 <li><strong><a href="../usage/#adminbypass">Admin Bypass</a> login is added to the Identity Guardian lock menu</strong> along with fallback authentication supported in earlier versions.</li>
 
 <li><strong>An enhanced user experience allows users to unlock the device using facial authentication without user interaction.</strong> This <a href="../usage/#autounlock">Auto-Unlock</a> feature eliminates the need to press the Unlock button in the lock screen.
-<img alt="image" style="height:400px" src="../usage/scan-to-unlock.jpg"></li>
+<img alt="image" style="height:350px" src="../usage/scan-to-unlock.jpg"></li>
 
 <li><strong>Non-Identity Guardian barcodes can now be used as a comparison source.</strong> This allows users to scan <a href="../usage/#nonidentityguardianbarcode">non-Identity Guardian barcodes</a> for device sign-in. Optionally, admins can add a prefix to validate the barcode. Zebra recommends using Identity Guardian-generated barcodes for maximum security.</li>
 
-<li><strong>Early Access Preview:</strong> 
+<li><strong>Early Access Preview:</strong>
 
 
 <ul>
-<li><strong>New <a href="../usage/#guardiansafe">Guardian Safe</a></strong> feature securely stores user credentials after a single entry on the login screen of any application, automatically filling in the credentials for future logins. <strong>Note:</strong> Use of Guardian Safe requires an Identity Guardian license and activation by Zebra support. </li></ul>
+<li><strong>New <a href="../usage/#guardiansafe">Guardian Safe</a></strong> feature securely stores user credentials after a single entry on the login screen of any application, automatically filling in the credentials for future logins. <strong>Note:</strong> Use of Guardian Safe requires an Identity Guardian license and activation by Zebra support.</li></ul>
 </li>
 
 <li><strong>Known Issues:</strong>
@@ -341,13 +386,6 @@ Using [managed configurations](../mc/) through Zebra’s DNA Cloud platform or E
 <li><strong>When PingFed is used for single sign-on (SSO) and Identity Guardian is upgraded, users may experience a one-time issue where they cannot sign out from Identity Guardian on a shared device.</strong> This is overcome by rebooting the device, docking it on a cradle, or locking/unlocking the device based on the configuration set by the system administrator. This issue does not recur after the first sign-out attempt.</li></ul>
 </li>
 </ul>
-
-<!-- // MOVED TO IG 1.6
-- **New secure [self-enrollment](../usage/#selfguided) of new users from the Identity Guardian lock screen on devices configured for authentication mode.** This eliminates the need for switching the application mode between Enrollment and Authentication. -->
-
-<hr>
-
-<h2 id="versionhistory" class="anchor"><a class="heading-anchor" href="#versionhistory"><span></span></a>Version History</h2>
 
 <h3 id="newin14" class="anchor"><a class="heading-anchor" href="#newin14"><span></span></a>New in 1.4</h3>
 

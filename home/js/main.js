@@ -1043,6 +1043,7 @@ function populateDropdown (ddl_ver, ddl_doc) {
         case '/identityguardian/1-3':
         case '/identityguardian/1-4':
         case '/identityguardian/1-5':
+        case '/identityguardian/1-6':
             ddl_doc.options.length = 0;
             for (i=0; i < ig_1_3_text.length; i++) {
                 createOption(ddl_doc, ig_1_3_text[i], ig_1_3_val[i]);

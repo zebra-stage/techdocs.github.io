@@ -821,44 +821,12 @@
                                 
                                     
                                     
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                         <div class="" data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="" data-api="" data-smartdoc="">
 
                                     <h2 class="anchor" id="overview"><a class="heading-anchor" href="#overview"><span></span></a>Overview</h2>
                                     <p class="">
 
-        </p><p>The KeyMappingMgr allows an app to modify the behavior of one or more physical (or capacitive) Keys when such Keys are pressed (or touched). It does so by remapping the keycode value delivered by the Key to one that performs the desired behavior. </p>
+        </p><p>The Key Mapping Manager (KeyMappingMgr) allows an app to modify the behavior of one or more physical (or capacitive) Keys when such Keys are pressed (or touched). It does so by remapping the keycode value delivered by the Key to one that performs the desired behavior. </p>
 
 <h3 id="supportnotes" class="anchor"><a class="heading-anchor" href="#supportnotes"><span></span></a>Support Notes</h3>
 
@@ -867,98 +835,27 @@
 
 <li><i class="fa fa-exclamation-triangle" style="color:#FFA500;"></i> <strong>SDM660-platform devices running Android 10 or Android 8 (Oreo) <u>DO NOT</u> support key remapping sequence keys</strong> when orange- or blue-key modifiers are enabled.</li>
 
-<li>KeyMappingMgr is <strong>supported only on the following devices</strong>:
-
-
-<ul>
-<li>EC30</li>
-
-<li>ET51</li>
-
-<li>ET56</li>
-
-<li>L10</li>
-
-<li>MC18</li>
-
-<li><strong>MC20</strong></li>
-
-<li>MC33</li>
-
-<li><strong>MC33ax</strong></li>
-
-<li>MC3300</li>
-
-<li>MC40</li>
-
-<li>MC67</li>
-
-<li>MC92</li>
-
-<li>MC93</li>
-
-<li>TC20</li>
-
-<li>TC25</li>
-
-<li>TC51</li>
-
-<li>TC52</li>
-
-<li><strong>TC52ax</strong></li>
-
-<li>TC56</li>
-
-<li>TC57</li>
-
-<li>TC70</li>
-
-<li>TC70x</li>
-
-<li>TC72</li>
-
-<li>TC75</li>
-
-<li>TC75x</li>
-
-<li>TC77</li>
-
-<li>TC8000</li>
-
-<li>TC8300</li>
-
-<li>VC80x</li>
-
-<li>VC8300</li>
-
-<li>WT6000</li></ul>
-</li>
-
-<li><strong>Device must be running Android 4.4 KitKat or later</strong></li>
-
-<li><strong>Device must contain MX 4.4 or later</strong></li>
-
-<li><strong>BOLD TYPE</strong> indicates support added most recently </li>
-</ul>
-
-<p>For key-mapping options on Zebra Android devices not listed above, please see the <a href="/enterprise-keyboard">Enterprise Keyboard User Guide</a>. </p>
-
-<ul>
 <li>KeyMappingMgr is <strong>NOT supported on the following devices</strong>:
 
 
 <ul>
-<li>Any device not listed above, including:</li>
-
-<li>MC36  </li>
+<li>MC36</li>
 
 <li>PS20</li>
 
+<li>PS30</li>
+
 <li>TC55</li></ul>
 </li>
+
+<li><strong>Device must be running Android 4.4 (KitKat) or later</strong></li>
+
+<li><strong>Device must contain MX 4.4 or later</strong></li>
 </ul>
 
-<p>For TC55 key-mapping options, see the <a href="../../../../mx/scanmodemgr">Scan Mode Manager</a> (not supported by EMDK). </p>
+<blockquote>
+  <p><i class="fa fa-check-circle" style="color:#27AE60;"></i> For TC55 key-mapping options, see the <a href="/mx/scanmodemgr">Scan Mode Manager</a> (not supported by EMDK). For key-mapping options on other Zebra Android devices listed above, please see the <a href="/enterprise-keyboard">Enterprise Keyboard User Guide</a>.  </p>
+</blockquote>
 
 <h3 id="mainfunctionality" class="anchor"><a class="heading-anchor" href="#mainfunctionality"><span></span></a>Main Functionality</h3>
 
@@ -969,7 +866,7 @@
 <ul>
 <li>Behave like a different Key</li>
 
-<li>Execute a predefined trigger (i.e. scan a barcode)</li>
+<li>Execute a predefined trigger (i.e. activate the device scanner)</li>
 
 <li>Launch an application </li>
 
@@ -1051,7 +948,7 @@
 
 <pre class="prettyprint"><code>        
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("com.zebra.intent.action.ALL_MODIFIER_WITH_STATE ");
+        intentFilter.addAction("com.zebra.intent.action.ALL_MODIFIER_WITH_STATE");
         registerReceiver(receiver,intentFilter,"zebra.permission.KEY_EVENT_SERVICE",null);
 
         private BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -1391,6 +1288,53 @@ B1, P1/P2/P3 are new addition, which is just different label.
                                     
                                     
                                     
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                         <div class="">
                                     
                                     <h2 class="anchor" id="action"><a class="heading-anchor" href="#action"><span></span></a>Action</h2>
@@ -1504,50 +1448,6 @@ B1, P1/P2/P3 are new addition, which is just different label.
                                     </div>	
                                     
                                 </div> 
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                     
                                     
                                     
@@ -3917,6 +3817,52 @@ info: Applies to MC20 devices only.
                                     </div>	
                                     
                                 </div> 
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                     
                                     
                                     
@@ -9459,6 +9405,14 @@ info: Applies to MC20 devices only.
                                     
                                     
                                     
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                         <div class="">
                                     
                                     <h2 class="anchor" id="key-base-behavior"><a class="heading-anchor" href="#key-base-behavior"><span></span></a>Key Base Behavior</h2>
@@ -9669,55 +9623,6 @@ info: Applies to MC20 devices only.
                                     </div>	
                                     
                                 </div> 
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                     
                                     
                                     
@@ -10050,6 +9955,40 @@ info: Applies to MC20 devices only.
                                     
                                     
                                     
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                         <div class="">
                                     
                                     <h2 class="anchor" id="advanced"><a class="heading-anchor" href="#advanced"><span></span></a>Advanced</h2>
@@ -10138,14 +10077,6 @@ info: Applies to MC20 devices only.
                                     </div>	
                                     
                                 </div> 
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                     
                                     
                                     
@@ -10278,6 +10209,8 @@ info: Applies to MC20 devices only.
                                     </div>	
                                     
                                 </div> 
+                                    
+                                    
                                     
                                     
                                     
@@ -10420,11 +10353,6 @@ info: Applies to MC20 devices only.
                                     
                                     
                                     
-                                    
-                                    
-                                    
-                                    
-                                    
                                         <div class="">
                                     
                                     <h2 class="anchor" id="fn-state"><a class="heading-anchor" href="#fn-state"><span></span></a>FN State</h2>
@@ -10557,6 +10485,9 @@ info: Applies to MC20 devices only.
                                     
                                     
                                     
+                                    
+                                    
+                                    
                                         <div class="">
                                     
                                     <h2 class="anchor" id="shift-state"><a class="heading-anchor" href="#shift-state"><span></span></a>Shift State</h2>
@@ -10685,21 +10616,6 @@ info: Applies to MC20 devices only.
                                     </div>	
                                     
                                 </div> 
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                     
                                     
                                     
@@ -11205,6 +11121,32 @@ info: Applies to MC20 devices only.
                                     
                                     
                                     
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                         <div class="">
                                     
                                     <h2 class="anchor" id="add-key-event"><a class="heading-anchor" href="#add-key-event"><span></span></a>Add Key Event</h2>
@@ -11334,13 +11276,63 @@ info: Applies to MC20 devices only.
                                     
                                     
                                     
+                                        <div class="" data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="4.4" data-api="" data-smartdoc="">
+
+                                    <h2 class="anchor" id="include-additional-flags"><a class="heading-anchor" href="#include-additional-flags"><span></span></a>Include Additional Flags</h2>
+                                    <p class="">
+
+        </p><p>Used to enter the Intent Flags to include in the Intent sent as the Key Behavior for the specified Key in the specified Key State Mapping Table. Intent Flags enter information about how an Intent should be processed by the Android system and/or by the application to which the Intent is sent. Entering an empty (length of zero) value (or the absence of this parm from the XML) causes no value for this attribute to be set in the Intent.</p>
+
+<p><strong>Parm names</strong>:</p>
+
+<ul>
+<li>For Base Key State Table: <strong>BaseIntentIncludeFlags</strong></li>
+
+<li>For Blue Key State Table: <strong>BlueIntentIncludeFlags</strong></li>
+
+<li>For Orange Key State Table: <strong>OrangeIntentIncludeFlags</strong></li>
+
+<li>For Grey Key State Table: <strong>GreyIntentIncludeFlags</strong></li>
+
+<li>For Shift Key State Table: <strong>ShiftIntentIncludeFlags</strong></li>
+
+<li>For Control Key State Table: <strong>ControlIntentIncludeFlags</strong></li>
+</ul>
+
+<p><strong>Parm value input rules</strong>: </p>
+
+<ul>
+<li>String containing a valid flag
+
+
+<ul>
+<li>The list of valid flags would be the Constant Values</li>
+
+<li>For example, the value for the FLAG_ACTIVITY_NEW_TASK flag would be "0x10000000"</li>
+
+<li>Also, if more than one flag should be used, the flags will need to be OR'ed together. For example, to use the FLAG_ACTIVITY_NEW_TASK and FLAG_ACTIVITY_SINGLE_TOP flags, their values ("0x10000000" and "0x20000000") would be OR'ed together to produce the value "0x30000000" that would be used as the parm value.</li></ul>
+</li>
+</ul>
+
+
+<p></p>
+                                        <blockquote>
+                                        <p><b>Shown if:</b> The Action value is "Remap a key" and Choose a key to modify is not "None" and the Key Behavior is "Send intent"</p>
+                                        <p><b>Parm Name:</b> BaseIntentIncludeFlags,BlueIntentIncludeFlags,OrangeIntentIncludeFlags,GreyIntentIncludeFlags,ShiftIntentIncludeFlags,ControlIntentIncludeFlags</p>
+                                        <!-- <p><b>Pivotal Parm:</b> No</p> -->
+                                        <p><b>Requires:</b> 
+                                            </p><ul>
+                                                <li>MX: 4.4+ </li>
+                                           </ul>
+                                        <p></p>
+                                        
+
+                                        
+                                        </blockquote>
                                     
                                     
                                     
-                                    
-                                    
-                                    
-                                    
+                                </div> 
                                     
                                     
                                     
@@ -11612,63 +11604,8 @@ info: Applies to MC20 devices only.
                                     
                                     
                                     
-                                        <div class="" data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="4.4" data-api="" data-smartdoc="">
-
-                                    <h2 class="anchor" id="include-additional-flags"><a class="heading-anchor" href="#include-additional-flags"><span></span></a>Include Additional Flags</h2>
-                                    <p class="">
-
-        </p><p>Used to enter the Intent Flags to include in the Intent sent as the Key Behavior for the specified Key in the specified Key State Mapping Table. Intent Flags enter information about how an Intent should be processed by the Android system and/or by the application to which the Intent is sent. Entering an empty (length of zero) value (or the absence of this parm from the XML) causes no value for this attribute to be set in the Intent.</p>
-
-<p><strong>Parm names</strong>:</p>
-
-<ul>
-<li>For Base Key State Table: <strong>BaseIntentIncludeFlags</strong></li>
-
-<li>For Blue Key State Table: <strong>BlueIntentIncludeFlags</strong></li>
-
-<li>For Orange Key State Table: <strong>OrangeIntentIncludeFlags</strong></li>
-
-<li>For Grey Key State Table: <strong>GreyIntentIncludeFlags</strong></li>
-
-<li>For Shift Key State Table: <strong>ShiftIntentIncludeFlags</strong></li>
-
-<li>For Control Key State Table: <strong>ControlIntentIncludeFlags</strong></li>
-</ul>
-
-<p><strong>Parm value input rules</strong>: </p>
-
-<ul>
-<li>String containing a valid flag
-
-
-<ul>
-<li>The list of valid flags would be the Constant Values</li>
-
-<li>For example, the value for the FLAG_ACTIVITY_NEW_TASK flag would be "0x10000000"</li>
-
-<li>Also, if more than one flag should be used, the flags will need to be OR'ed together. For example, to use the FLAG_ACTIVITY_NEW_TASK and FLAG_ACTIVITY_SINGLE_TOP flags, their values ("0x10000000" and "0x20000000") would be OR'ed together to produce the value "0x30000000" that would be used as the parm value.</li></ul>
-</li>
-</ul>
-
-
-<p></p>
-                                        <blockquote>
-                                        <p><b>Shown if:</b> The Action value is "Remap a key" and Choose a key to modify is not "None" and the Key Behavior is "Send intent"</p>
-                                        <p><b>Parm Name:</b> BaseIntentIncludeFlags,BlueIntentIncludeFlags,OrangeIntentIncludeFlags,GreyIntentIncludeFlags,ShiftIntentIncludeFlags,ControlIntentIncludeFlags</p>
-                                        <!-- <p><b>Pivotal Parm:</b> No</p> -->
-                                        <p><b>Requires:</b> 
-                                            </p><ul>
-                                                <li>MX: 4.4+ </li>
-                                           </ul>
-                                        <p></p>
-                                        
-
-                                        
-                                        </blockquote>
                                     
                                     
-                                    
-                                </div> 
                                     
                                     
                                     
@@ -11748,24 +11685,6 @@ info: Applies to MC20 devices only.
                                     
                                     
                                 </div> 
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                     
                                     
                                     
@@ -11916,6 +11835,18 @@ info: Applies to MC20 devices only.
                                     
                                     
                                     
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                         <div class="" data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="11.4" data-api="" data-smartdoc="">
 
                                     <h2 class="anchor" id="double-trigger-timer"><a class="heading-anchor" href="#double-trigger-timer"><span></span></a>Double-trigger Timer</h2>
@@ -11948,13 +11879,6 @@ info: Applies to MC20 devices only.
                                     
                                     
                                 </div> 
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                     
                                     
                                     
@@ -12013,6 +11937,12 @@ info: Applies to MC20 devices only.
                                     
                                     
                                     
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                         <div class="" data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="11.4" data-api="" data-smartdoc="">
 
                                     <h2 class="anchor" id="advanced-double-trigger-key-code"><a class="heading-anchor" href="#advanced-double-trigger-key-code"><span></span></a>Advanced Double-trigger Key Code</h2>
@@ -12057,7 +11987,6 @@ info: Applies to MC20 devices only.
                                     
                                     
                                 </div> 
-                                    
                                     
                                     
                                     
@@ -14340,6 +14269,21 @@ filtering
                     
                     
                     
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     {
                             presentif: "",
                             name: "Action",
@@ -14400,50 +14344,6 @@ filtering
                         
                         ]
                     },
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     
                     
                     
@@ -16042,6 +15942,52 @@ filtering
                         
                         ]
                     },
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     
                     
                     
@@ -19846,6 +19792,14 @@ filtering
                     
                     
                     
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     {
                             presentif: "The Action value is &quot;Remap a key&quot; and Choose a key to modify is not &quot;None&quot;",
                             name: "BaseBehavior",
@@ -19974,55 +19928,6 @@ filtering
                         
                         ]
                     },
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     
                     
                     
@@ -20273,6 +20178,40 @@ filtering
                     
                     
                     
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     {
                             presentif: "The Action value is &quot;Remap a key&quot; and Choose a key to modify is not &quot;None&quot; and the Key Behavior for the Mapping Table is &quot;Send key-code&quot;",
                             name: "BaseKeyCodeAdvanced,BlueKeyCodeAdvanced,OrangeKeyCodeAdvanced,GreyKeyCodeAdvanced,ShiftKeyCodeAdvanced,ControlKeyCodeAdvanced,DiamondKeyCodeAdvanced",
@@ -20316,14 +20255,6 @@ filtering
                         
                         ]
                     },
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     
                     
                     
@@ -20388,6 +20319,8 @@ filtering
                         
                         ]
                     },
+                    
+                    
                     
                     
                     
@@ -20462,11 +20395,6 @@ filtering
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
                     {
                             presentif: "The Action value is &quot;Remap a key&quot; and Choose a key to modify is not &quot;None&quot; and the Key Behavior is &quot;Send key-code&quot; and Advanced is &quot;True&quot;",
                             name: "BaseKeyCodeFnState,BlueKeyCodeFnState,OrangeKeyCodeFnState,GreyKeyCodeFnState,ShiftKeyCodeFnState,ControlKeyCodeFnState",
@@ -20527,6 +20455,9 @@ filtering
                         
                         ]
                     },
+                    
+                    
+                    
                     
                     
                     
@@ -20683,21 +20614,6 @@ filtering
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     {
                         requires: {
                             osx: "",
@@ -20717,6 +20633,32 @@ filtering
                         
                         
                     },
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     
                     
                     
@@ -20828,13 +20770,25 @@ filtering
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                    {
+                        requires: {
+                            osx: "",
+                            osxEnd: "",
+                            mx: "4.4",
+                            api: "",
+                            osxSpecific: "",
+                            osxSpecificList: "",
+                            osxExclude: "",
+                            osxExcludeEnd: "",
+                            devicetype: "A"
+                        },
+
+                            presentif: "The Action value is &quot;Remap a key&quot; and Choose a key to modify is not &quot;None&quot; and the Key Behavior is &quot;Send intent&quot;",
+                            name: "BaseIntentIncludeFlags,BlueIntentIncludeFlags,OrangeIntentIncludeFlags,GreyIntentIncludeFlags,ShiftIntentIncludeFlags,ControlIntentIncludeFlags",
+                            pivotal: "No",
+                        
+                        
+                    },
                     
                     
                     
@@ -20998,25 +20952,8 @@ filtering
                     
                     
                     
-                    {
-                        requires: {
-                            osx: "",
-                            osxEnd: "",
-                            mx: "4.4",
-                            api: "",
-                            osxSpecific: "",
-                            osxSpecificList: "",
-                            osxExclude: "",
-                            osxExcludeEnd: "",
-                            devicetype: "A"
-                        },
-
-                            presentif: "The Action value is &quot;Remap a key&quot; and Choose a key to modify is not &quot;None&quot; and the Key Behavior is &quot;Send intent&quot;",
-                            name: "BaseIntentIncludeFlags,BlueIntentIncludeFlags,OrangeIntentIncludeFlags,GreyIntentIncludeFlags,ShiftIntentIncludeFlags,ControlIntentIncludeFlags",
-                            pivotal: "No",
-                        
-                        
-                    },
+                    
+                    
                     
                     
                     
@@ -21063,24 +21000,6 @@ filtering
                         
                         
                     },
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     
                     
                     
@@ -21183,6 +21102,18 @@ filtering
                     
                     
                     
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     {
                         requires: {
                             osx: "",
@@ -21202,13 +21133,6 @@ filtering
                         
                         
                     },
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     
                     
                     
@@ -21254,6 +21178,12 @@ filtering
                     
                     
                     
+                    
+                    
+                    
+                    
+                    
+                    
                     {
                         requires: {
                             osx: "",
@@ -21273,7 +21203,6 @@ filtering
                         
                         
                     },
-                    
                     
                     
                     

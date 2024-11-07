@@ -865,6 +865,7 @@ function populateDropdown (ddl_ver, ddl_doc) {
             }
             break;
         case '/devicetracker/6-2':
+        case '/devicetracker/6-3':
             ddl_doc.options.length = 0;
             for (i=0; i < dt_6_2_text.length; i++) {
                 createOption(ddl_doc, dt_6_2_text[i], dt_6_2_val[i]);
@@ -1005,6 +1006,7 @@ function populateDropdown (ddl_ver, ddl_doc) {
         case '/enterprise-browser/3-0':
         case '/enterprise-browser/3-2':
         case '/enterprise-browser/3-3':
+        case '/enterprise-browser/5-0':
             ddl_doc.options.length = 0;
             for (i=0; i < eb_2_0_text.length; i++) {
                 createOption(ddl_doc, eb_2_0_text[i], eb_2_0_val[i]);
@@ -1041,6 +1043,7 @@ function populateDropdown (ddl_ver, ddl_doc) {
         case '/identityguardian/1-3':
         case '/identityguardian/1-4':
         case '/identityguardian/1-5':
+        case '/identityguardian/1-6':
             ddl_doc.options.length = 0;
             for (i=0; i < ig_1_3_text.length; i++) {
                 createOption(ddl_doc, ig_1_3_text[i], ig_1_3_val[i]);
@@ -1048,6 +1051,7 @@ function populateDropdown (ddl_ver, ddl_doc) {
             break;     
         
         // Mobile Parcel
+        case '/mobile-parcel/1-4':
         case '/mobile-parcel/1-3':
         case '/mobile-parcel/1-2':
         case '/mobile-parcel/1-1':

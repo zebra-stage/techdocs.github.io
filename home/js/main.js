@@ -776,6 +776,8 @@ function populateDropdown (ddl_ver, ddl_doc) {
         case '/datawedge/11-3':
         case '/datawedge/11-4':
         case '/datawedge/13-0':
+        case '/datawedge/14-0':
+        case '/datawedge/14-1':
             ddl_doc.options.length = 0;
             for (i=0; i < dw_11_2_text.length; i++) {
                 createOption(ddl_doc, dw_11_2_text[i], dw_11_2_val[i]);

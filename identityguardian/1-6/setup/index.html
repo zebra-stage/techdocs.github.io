@@ -335,25 +335,35 @@
 <li>Personally Assigned Device</li>
 </ul>
 
-<p>For both types, users must first enroll in Identity Guardian before signing in to authenticate to the device.</p>
+<p>For both types, users must first enroll in Identity Guardian before signing in to authenticate to the device. </p>
 
 <hr>
 
 <h3 id="shareddevice" class="anchor"><a class="heading-anchor" href="#shareddevice"><span></span></a>Shared Device</h3>
 
-<p>In environments where multiple users share a single device, Identity Guardian ensures secure and personalized access. Personalized experiences can be tailored based on each user's predefined organizational role. Users must first enroll with Identity Guardian before they can authenticate on a shared device. Shared devices can recognize an unlimited number of registered users.</p>
+<p>In environments where <strong>a single device is used by multiple users,</strong> Identity Guardian provides <strong>secure and personalized access</strong> tailored to each user's organizational role. Users must perform a one-time enrollment with Identity Guardian before they can authenticate on a shared device. These devices can support an unlimited number of registered users.</p>
 
 <p>There are 2 methods for enrolling users on shared devices:</p>
 
 <ul>
-<li><strong><a href="#standardenrollment">Standard</a> -</strong> Users enroll on a designated device based on the Enrollment profile deployed by administrators. Once enrolled, they can authenticate on their shared device, where the administrator has deployed the Authentication profile.</li>
+<li><strong><a href="#standardenrollment">Standard Enrollment</a> -</strong> <em>Users enroll on a dedicated device</em> using the Enrollment profile set up by their administrator. Once enrolled, they can authenticate on their shared device, which has the Authentication profile deployed by the administrator.</li>
 
-<li><strong><a href="#selfenrollment">Self-Enrollment</a> -</strong> Both enrollment and authentication are performed directly on the shared device, facilitated by a unified Authentication profile (which includes enrollment configurations) deployed by the administrator. SSO is used for user authentication.</li>
+<li><strong><a href="#selfenrollment">Self-Enrollment</a> -</strong> <em>Both enrollment and authentication are conducted directly on the shared device</em> through a unified Authentication profile that incorporates enrollment configurations set up by the administrator. SSO is used for user authentication.</li>
 </ul>
 
-<p>User data is encrypted and stored in a unique, encrypted barcode located in the <code>/enterprise/usr/Profiles</code> folder. This user barcode must be printed or shared within 24 hours before it is automatically deleted, ensuring that personal information is not stored on the device or in the cloud. Optionally, facial biometrics can be used to generate this barcode for enhanced security. For temporary user profiles, barcodes can be set to expire automatically at a specified date and time. Alternatively, SSO can be used as the primary authentication method instead of issuing individual barcodes.</p>
+<p>User data is encrypted and stored within a unique, encrypted barcode in the <code>/enterprise/usr/Profiles</code> folder. <em><strong>This barcode must be printed or shared within 24 hours</strong></em> before it is automatically deleted, ensuring that personal information is not retained on the device or in the cloud. Facial biometrics can optionally be used to enhance security. For temporary user profiles, barcodes can be set to expire automatically at a predetermined date and time. Alternatively, SSO can serve as the primary authentication method instead of issuing individual barcodes.</p>
 
-<p>Once enrolled, users can authenticate on their shared device. <strong>For enhanced security, multifactor authentication</strong> can be configured, offering options such as a passcode, facial biometrics, and/or SSO. </p>
+<p><strong>During enrollment, the user’s personal information,</strong> such as biometric facial image capture and passcode, <strong>is encrypted with an enrollment key.</strong> <em>This key is an encrypted public key derived from the organization’s certificate</em> and configured via Identity Guardian Managed Configuration. For details on generating an enrollment key, see <a href="../mc/#enrollmentconfiguration">Enrollment Configuration</a>. Ensure the device used for enrollment is provisioned with the Enrollment configuration.</p>
+
+<p><strong>To authenticate users on a device, administrators must supply the authentication key,</strong> an <em>encrypted private key derived from the organization’s certificate</em> and configured through Identity Guardian Managed Configuration. For details on generating the authentication key, see <a href="../mc/#authenticationconfiguration">Authentication Configuration</a>. Ensure the device is provisioned with the Authentication configuration.</p>
+
+<p>When the enrollment barcode is scanned, its data is decrypted using the authentication key and used for further authentication checks. <strong>This barcode <em>cannot be decrypted or reverse-engineered on any device without the authentication key.</em></strong> Organizations <em>must</em> maintain the security and confidentiality of their authentication key.</p>
+
+<blockquote>
+  <p><i class="fa fa-exclamation-triangle" style="color:#FFA500;"></i> <b><code>IMPORTANT:</code> Administrators MUST provision their own enrollment key on devices designated for user enrollment and MUST provision their authentication key on devices designated for user authentication.</b> Failure to do so results in Identity Guardian using default keys, allowing any device with those keys to decrypt the barcode.</p>
+</blockquote>
+
+<!-- Once enrolled, users can authenticate on their shared device. **For enhanced security, multifactor authentication** can be configured, offering options such as a passcode, facial biometrics, and/or SSO. -->
 
 <p><img alt="image" style="height:200px" src="shared-workflow.jpg"></p>
 
@@ -388,6 +398,8 @@
 
 
 <ul>
+<li>Enter the <strong>Enrollment Key</strong> to encrypt the user's personal information.</li>
+
 <li>If barcode printing or sharing is required, enable the option <strong>Allow opening barcode while enrollment.</strong></li></ul>
 </li>
 
@@ -446,7 +458,12 @@
 <li><strong>Application Mode:</strong> AUTHENTICATION</li></ul>
 </li>
 
-<li>Configure settings in <a href="../mc/#authenticationconfiguration">Authentication Configuration</a> from Managed Configurations. <i><strong>It is required to configure SSO as one of the verification methods.</strong></i></li>
+<li>Configure the desired settings in <a href="../mc/#authenticationconfiguration">Authentication Configuration</a> from Managed Configurations. <i><strong>It is required to configure SSO as one of the verification methods.</strong></i>
+
+
+<ul>
+<li>Enter the <strong>Authentication Key</strong> to decrypt the user's personal information.</li></ul>
+</li>
 
 <li>In <strong><a href="../mc/#lockscreenconfiguration">Lock Screen Configuration</a>:</strong> Expand <strong>Lock Screen Menu &gt; Allow Self Enrollment</strong> and set the following options:
 
@@ -486,12 +503,12 @@
 
 <li><p>Connect the printer to the device (for WiFi printers, ensure both the printer and device are on the same network):</p>
 
-<p></p><ul>
-<li><strong>Zebra Card Printers -</strong> No additional steps needed.</li></ul><p></p>
+<ul>
+<li><strong>Zebra Card Printers -</strong> No additional steps needed.</li>
 
-<p></p></li><li><strong>Other Zebra Printers -</strong> Install Zebra Print from Google Play and connect.</li><p></p>
+<li><strong>Other Zebra Printers -</strong> Install Zebra Print from Google Play and connect.</li>
 
-<p></p><li><strong>Non-Zebra Printers -</strong> Install the third-party printer service and connect.</li><p></p>
+<li><strong>Non-Zebra Printers -</strong> Install the third-party printer service and connect.</li></ul></li>
 
 <li><p>Configure IGQRPrint app if the preview is not suitable for printing or sharing. This is performed on each device. Select <strong>Settings</strong> from the top right menu. Adjust the settings and preview the barcode until satisfactory (retain default values unless instructed otherwise):<br>
 <strong>Cards Printing:</strong> <em>For Zebra card printers only.</em></p>

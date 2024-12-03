@@ -10,8 +10,8 @@
     <meta name="author" content="Zebra Technologies">
     <meta name="google-site-verification" content="i4B78BrWnNy8ShJwe5feRW3jO3HE6gfYlYqYbxfl8yY">
     <meta name="msvalidate.01" content="6B651B00161BCE79B8950AC09D5C4C75">
-    <meta title="Enumerate Triggers">
-    <title>Enumerate Triggers - Zebra Technologies TechDocs</title>
+    <meta title="Enumerate Scanners">
+    <title>Enumerate Scanners - Zebra Technologies TechDocs</title>
     <!-- core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -158,7 +158,7 @@
                     <nav id="toc" data-toggle="toc" data-spy="affix" style="height: 75%; max-width: 225px; overflow-y: auto; ">
                         
                         <ul class="nav">
-                            <li><strong>Enumerate Triggers</strong></li>
+                            <li><strong>Enumerate Scanners</strong></li>
                         </ul>
                     </nav>
                     <div class="modal fade" id="modal-smartdocs" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" data-backdrop="true">
@@ -244,7 +244,7 @@
                         <div class="col-sm-12">
                             <section id="cta" class="wow fadeIn">
                                 <div class="">
-                                    <h1 id="enumerate-triggers" class="anchor"><a class="heading-anchor" href="#enumerate-triggers"><span></span></a>Enumerate Triggers</h1>
+                                    <h1 id="enumerate-scanners" class="anchor"><a class="heading-anchor" href="#enumerate-scanners"><span></span></a>Enumerate Scanners</h1>
                                     <p>
                                             DataWedge
                                             14.1
@@ -260,66 +260,246 @@
                                 <div class="service-box wow fadeInRight">
                                     <div class="">
 
-                                        <p></p><h2 id="enumerate_triggers" class="anchor"><a class="heading-anchor" href="#enumerate_triggers"><span></span></a>ENUMERATE_TRIGGERS</h2>
+                                        <p></p><h2 id="enumerate_scanners" class="anchor"><a class="heading-anchor" href="#enumerate_scanners"><span></span></a>ENUMERATE_SCANNERS</h2>
 
-<p>Retrieve supported trigger list of a device. Applies only when configuring multiple scanners to retrieve the name of the trigger for use with <code>scanner_selection_by_identifier</code> from <a href="../setconfig">Set_Config</a>.</p>
+<p>Generates a numbered list (index) of scanners available on the device. The scanner and its parameters are set based on the currently active Profile.</p>
+
+<p><i class="fa fa-exclamation-triangle" style="color:#FFA500;"></i>  <b><code>IMPORTANT</code></b>: The scanner index is not fixed for all devices. It varies depending on the number of supported internal and/or external scanners installed and/or connected to the device at the time the index is generated.</p>
 
 <h3 id="functionprototype" class="anchor"><a class="heading-anchor" href="#functionprototype"><span></span></a>Function Prototype</h3>
 
 <pre class="prettyprint"><code>Intent i = new Intent();
 i.setAction("com.symbol.datawedge.api.ACTION");
-i.setPackage("com.symbol.datawedge");
-i.putExtra("com.symbol.datawedge.api.ENUMERATE_TRIGGERS", "");
-sendBroadcast(i);
+i.putExtra("com.symbol.datawedge.api.ENUMERATE_SCANNERS", "");
 </code></pre>
 
 <h3 id="parameters" class="anchor"><a class="heading-anchor" href="#parameters"><span></span></a>Parameters</h3>
 
-<p><strong>ACTION</strong> [string]: "com.symbol.datawedge.api.ACTION"</p>
-
-<p><strong>EXTRA_DATA</strong> [string]: "com.symbol.datawedge.api.ENUMERATE_TRIGGERS"</p>
-
-<p><strong>EXTRA VALUE</strong> [string]: empty string</p>
+<p><strong>ACTION</strong> [String]: "com.symbol.datawedge.api.ENUMERATE_SCANNERS"</p>
 
 <h3 id="returnvalues" class="anchor"><a class="heading-anchor" href="#returnvalues"><span></span></a>Return Values</h3>
 
-<p>Returns a string array of supported triggers.</p>
+<p>The enumerated list of scanners is returned via the broadcast intent <code>com.symbol.datawedge.api.ACTION_ENUMERATEDSCANNERLIST</code>. The list of scanners is returned as a string array (see below).</p>
 
-<p><strong>EXTRA NAME:</strong> "com.symbol.datawedge.api.RESULT_ENUMERATE_TRIGGERS"</p>
+<h3 id="bundleextras" class="anchor"><a class="heading-anchor" href="#bundleextras"><span></span></a>Bundle Extras</h3>
 
-<p><strong>EXTRA TYPE:</strong> string[ ]</p>
+<p><strong>SCANNER_NAME</strong> [String]:</p>
+
+<p><strong>SCANNER_INDEX</strong> [String]:</p>
+
+<p><strong>SCANNER_CONNECTION_STATE</strong> [String]:</p>
+
+<p><strong>SCANNER_IDENTIFIER</strong> [String]: in each scanner info bundle for each scanner supported in the device (introduced in DataWedge 6.5). Both parameters are supported in DataWedge 6.6 and higher; the scanner identifier value takes precedence if an index also is referenced in the code.</p>
+
+<p><strong>Possible values</strong>:</p>
+
+<ul>
+<li><strong>AUTO</strong> - Automatic scanner selection</li>
+
+<li><strong>INTERNAL_IMAGER</strong> - Built-in imager scanner</li>
+
+<li><strong>INTERNAL_LASER</strong> - Built-in laser scanner</li>
+
+<li><strong>INTERNAL_CAMERA</strong> - Built-in camera scanner</li>
+
+<li><strong>SERIAL_SSI</strong> - Pluggable Z-back scanner for ET50/ET55</li>
+
+<li><strong>BLUETOOTH_SSI</strong> - RS507 Bluetooth scanner</li>
+
+<li><strong>BLUETOOTH_RS5100</strong> - RS5100 Bluetooth scanner</li>
+
+<li><strong>BLUETOOTH_RS6000</strong> - RS6000 Bluetooth scanner</li>
+
+<li><strong>BLUETOOTH_DS2278</strong> - DS2278 Bluetooth scanner – does not apply to select devices, see <a href="../../input/barcode/#scannerselection">Scanner Selection</a></li>
+
+<li><strong>BLUETOOTH_DS3678</strong> - DS3678 Bluetooth scanner – does not apply to select devices, see <a href="../../input/barcode/#scannerselection">Scanner Selection</a></li>
+
+<li><strong>BLUETOOTH_DS8178</strong> – DS8178 Bluetooth scanner – does not apply to select devices, see <a href="../../input/barcode/#scannerselection">Scanner Selection</a></li>
+
+<li><strong>BLUETOOTH_LI3678</strong> – LI3678 Bluetooth scanner – does not apply to select devices, see <a href="../../input/barcode/#scannerselection">Scanner Selection</a></li>
+
+<li><strong>BLUETOOTH_ZEBRA</strong> - generic term for Zebra Bluetooth handheld scanner (such as DS3678, LI3678, DS8178)</li>
+
+<li><strong>PLUGABLE_SSI</strong> - Serial SSI scanner RS429 (for use with WT6000)</li>
+
+<li><strong>PLUGABLE_SSI_RS5000</strong> - Serial SSI scanner RS5000 (for use with WT6000)</li>
+
+<li><strong>USB_SSI_DS3608</strong> - DS3608 pluggable USB scanner</li>
+</ul>
 
 <h2 id="examplecode" class="anchor"><a class="heading-anchor" href="#examplecode"><span></span></a>Example Code</h2>
 
-<p>Sample code to send intent to enumerate triggers:</p>
+<h3 id="enumeratescanners" class="anchor"><a class="heading-anchor" href="#enumeratescanners"><span></span></a>Enumerate scanners</h3>
 
-<pre class="prettyprint"><code>Intent i = new Intent();
-i.setAction("com.symbol.datawedge.api.ACTION");
-i.setPackage("com.symbol.datawedge");
-i.putExtra("com.symbol.datawedge.api.ENUMERATE_TRIGGERS", "");
-sendBroadcast(i);
-</code></pre>
+<pre class="prettyprint"><code>//
+//  Call before sending the enumeration query
+//
+public void registerReciever(){
+    IntentFilter filter = new IntentFilter();
+    filter.addAction("com.symbol.datawedge.api.RESULT_ACTION");//RESULT_ACTION
+    filter.addCategory(Intent.CATEGORY_DEFAULT);
+    registerReceiver(enumeratingBroadcastReceiver, filter);
+}
+//
+// Send the enumeration command to DataWedge
+//
+public void enumerateScanners(){
+    Intent i = new Intent();
+    i.setAction("com.symbol.datawedge.api.ACTION");
+    i.putExtra("com.symbol.datawedge.api.ENUMERATE_SCANNERS", "");
+    this.sendBroadcast(i);
+}
 
-<p>Sample code to retrieve the result of the array of supported triggers:</p>
+public void unRegisterReciever(){
+    unregisterReceiver(enumeratingBroadcastReceiver);
+}
 
-<pre class="prettyprint"><code>private BroadcastReceiver broadcastReceiverTriggers = new BroadcastReceiver() {
+//
+// Create broadcast receiver to receive the enumeration result
+//
+private BroadcastReceiver enumeratingBroadcastReceiver = new BroadcastReceiver() {
     @Override
     public void onReceive(Context context, Intent intent) {
-        Bundle extras = intent.getExtras();
-        if (intent.hasExtra("com.symbol.datawedge.api.RESULT_ENUMERATE_TRIGGERS")) {
+        String action = intent.getAction();
+        Log.d(TAG, "Action: " + action);
+        if(action.equals("com.symbol.datawedge.api.RESULT_ACTION")){
+            //
+            // enumerate scanners
+            //
+            if(intent.hasExtra("com.symbol.datawedge.api.RESULT_ENUMERATE_SCANNERS")) {
+            ArrayList&lt;Bundle&gt; scannerList = (ArrayList&lt;Bundle&gt;) intent.getSerializableExtra("com.symbol.datawedge.api.RESULT_ENUMERATE_SCANNERS");
+            if((scannerList != null) &amp;&amp; (scannerList.size() &gt; 0)) {
+                for (Bundle bunb : scannerList){
+                    String[] entry = new String[4];
+                    entry[0] = bunb.getString("SCANNER_NAME");
+                    entry[1] = bunb.getBoolean("SCANNER_CONNECTION_STATE")+"";
+                    entry[2] = bunb.getInt("SCANNER_INDEX")+"";
 
-            String[] triggerList = extras.
-                    getStringArray("com.symbol.datawedge.api.RESULT_ENUMERATE_TRIGGERS");
-            List&lt;String&gt; arrTriggerList = Arrays.asList(triggerList);
-            String strTriggers = "Trigger List: &lt;br&gt;";
-            for (String trigger : arrTriggerList) {
-                strTriggers += trigger + "&lt;br&gt;";
+                    entry[3] = bunb.getString("SCANNER_IDENTIFIER");
+
+                    Log.d(TAG, "Scanner:" + entry[0]  + " Connection:" + entry[1] + " Index:" + entry[2] + " ID:" + entry[3]);
+                    }
+                }
             }
-            //Log.d(TAG, strTriggers);
         }
     }
 };
 </code></pre>
+
+<h3 id="getscannerdetails" class="anchor"><a class="heading-anchor" href="#getscannerdetails"><span></span></a>Get scanner details</h3>
+
+<pre class="prettyprint"><code>// RESULT_ACTION_EXTRA_ENUMERATE_SCANNERS
+
+if(intent.hasExtra("com.symbol.datawedge.api.RESULT_ENUMERATE_SCANNERS")) {
+    Log.d(TAG, "&gt;&gt;&gt; RESULT_ACTION_EXTRA_ENUMERATE_SCANNERS &lt;&lt;&lt;");
+    ArrayList&lt;Bundle&gt; scannerList = (ArrayList&lt;Bundle&gt;) intent.getSerializableExtra("com.symbol.datawedge.api.RESULT_ENUMERATE_SCANNERS");
+    if((scannerList != null) &amp;&amp; (scannerList.size() &gt; 0)) {
+        for ( Bundle bunb: scannerList) {
+
+            String ScannerName = bunb.getString("SCANNER_NAME");
+            int ScannerIndex = bunb.getInt("SCANNER_INDEX"));
+            Boolean ScannerConnectionState = bunb.getBoolean("SCANNER_CONNECTION_STATE");
+            String ScannerId = bunb.getString("SCANNER_IDENTIFIER");
+
+        }
+    }
+}
+</code></pre>
+
+<!-- 11/14/17- COMMENTED AND REPLACED WITH SAMPLE ABOVE, PER ENG.
+
+    // First send the intents to enumerate the available scanners on the device:
+    i.setAction("com.symbol.datawedge.api.ACTION");
+    i.putExtra("com.symbol.datawedge.api.ENUMERATE_SCANNERS", "");
+    this.sendBroadcast(i);
+
+    // define action string:
+    String enumerateScanners = "com.symbol.datawedge.api.ACTION";
+
+    // create the intent:
+    Intent i = new Intent();
+
+    // set the action to perform:
+    i.setAction(enumerateScanners);
+
+    // send the intent to DataWedge:
+    this.sendBroadcast(i);
+
+    // enable the app to receive the enumerated list of available scanners:
+    String enumeratedList = "com.symbol.datawedge.api.ACTION";
+
+    // create a filter for the broadcast intent
+    IntentFilter filter = new IntentFilter();
+        filter.addAction(enumeratedList);
+        filter.addCategory(Intent.CATEGORY_DEFAULT);  // NOTE: REQUIRED for DW6.2 and higher
+        registerReceiver(myBroadcastReceiver, filter);
+
+    // create a broadcast receiver
+    private BroadcastReceiver myBroadcastReceiver = new BroadcastReceiver() {
+       @Override
+       public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            Log.d(TAG, "Action: " + action);
+
+             if(action.equals("com.symbol.datawedge.api.RESULT_ACTION")){
+                Bundle b = intent.getExtras();
+
+    // enumerate scanners
+    if(intent.hasExtra("com.symbol.datawedge.api.RESULT_ENUMERATE_SCANNERS")) {
+        ArrayList<Bundle> scannerList = (ArrayList<Bundle>) intent.getSerializableExtra("com.symbol.datawedge.api.RESULT_ENUMERATE_SCANNERS");
+    if((scannerList != null) && (scannerList.size() > 0)) {
+        for ( Bundle bunb: scannerList)
+            Log.d(TAG,"Scanner:"+bunb.getString("SCANNER_NAME")+" Connection:"+bunb.getBoolean("SCANNER_CONNECTION_STATE")+" Index:"+bunb.getInt("SCANNER_INDEX"));
+                    }
+                }
+            }
+        }
+    };
+ -->
+
+<!--      // The following code provided by engineering on 6/26/17 [TUT-14724]
+         // Integrated with main code sample as indicated below:
+
+    //Enumerate Scanners (send request)
+        Intent i = new Intent();
+        i.setAction("com.symbol.datawedge.api.ACTION");
+        i.putExtra("com.symbol.datawedge.api.ENUMERATE_SCANNERS", "");
+        this.sendBroadcast(i); //this line added; those above were already present in sample
+
+
+    //Enumerate Scanners (receive results)
+    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            Log.d(TAG, "Action: " + action); //THIS LINE ADDED TO SAMPLE
+
+            //THE REMAINING CODE (BELOW) REPLACED THE
+            // "REMAINDER OF THE ORIGINAL SAMPLE" (FARTHER BELOW)
+
+            if(action.equals("com.symbol.datawedge.api.RESULT_ACTION")){
+                Bundle b = intent.getExtras();
+
+                // enumerate scanners
+                if(intent.hasExtra("com.symbol.datawedge.api.RESULT_ENUMERATE_SCANNERS")) {
+                    ArrayList<Bundle> scannerList = (ArrayList<Bundle>) intent.getSerializableExtra("com.symbol.datawedge.api.RESULT_ENUMERATE_SCANNERS");
+                    if((scannerList != null) && (scannerList.size() > 0)) {
+                        for ( Bundle bunb: scannerList)
+                            Log.d(TAG,"Scanner:"+bunb.getString("SCANNER_NAME")+" Connection:"+bunb.getBoolean("SCANNER_CONNECTION_STATE")+" Index:"+bunb.getInt("SCANNER_INDEX"));
+                    }
+                }
+            }
+        }
+    };
+
+    //"REMAINDER"
+                        if (action.equals(enumeratedList)) {
+                            Bundle b = intent.getExtras();
+                            String[] scanner_list = b.getStringArray(KEY_ENUMERATEDSCANNERLIST);
+                    }
+            }
+    };
+-->
 
 <hr>
 
@@ -333,9 +513,7 @@ sendBroadcast(i);
 
 <p><a href="http://developer.android.com/guide/components/intents-filters.html">Intents and Intent Filters</a> | Android Developers</p>
 
-<p><a href="http://www.vogella.com/tutorials/AndroidIntent/article.html">Android Intents</a> | Tutorial</p>
-
-<hr><p></p>
+<p><a href="http://www.vogella.com/tutorials/AndroidIntent/article.html">Android Intents</a> | Tutorial</p><p></p>
                                         
 
 

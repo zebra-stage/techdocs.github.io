@@ -9,7 +9,7 @@
     <meta name="google-site-verification" content="i4B78BrWnNy8ShJwe5feRW3jO3HE6gfYlYqYbxfl8yY">
     <meta name="msvalidate.01" content="6B651B00161BCE79B8950AC09D5C4C75">
     <meta title="Beeper Tutorial">
-    <title>ReceivingBatchedBarcodeData - Zebra Technologies Techdocs</title>
+    <title>WLAN - Zebra Technologies Techdocs</title>
     <!-- core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -171,7 +171,7 @@
                                               2.0.3.162
                                           </p>
                                             <p>
-                                              Applicable Devices: Handheld Readers RFD40XX
+                                              Applicable Devices: Handheld Readers RFD40XX and RFD90XX 
                                           </p>
                                         </div>
                                     </section>
@@ -188,7 +188,7 @@
                                                 <h2 id="overview" class="anchor"><a class="heading-anchor" href="#overview"><span></span></a>Overview</h2>
 
                                                 <p>This Tutorial provides a walk-through of the steps to perform WIFI operation using <a href="../../apis/index.html">RFID3 API</a>. <br>
-                                              Wifi is supported only with RFD40XX premium and premium plus devices.</p>
+                                              Wifi is supported only with RFD40XX/90XX premium and premium plus devices.</p>
 
 
                                                 <h3 id="createtheproject" class="anchor"><a class="heading-anchor" href="#createtheproject"><span></span></a>Create The Project</h3>
@@ -207,7 +207,7 @@
 												  <li>WIFI Profile save</li>
 												  <li>WIFI Profile connect/disconnect.</li>
 												</ol>
-<p>NOTE: Certificates that needs to be used for WIFI profile needs to be installed on the device using 123RFID Desktop</p>
+<p>NOTE: Certificates that needs to be used for WIFI profile needs to be installed on the device using Certificate Management feature</p>
 												
 												
 												</p>
@@ -258,13 +258,13 @@ public void readWifiScanNotification(String status, String ssid) {
 											<p>Scan data results will be pushed to application via WifiScanDataEventsListener</p>
 											
     <pre class="prettyprint"><code>
-	//wifi Scan Data
-	 @Override
-	 public void eventWifiScanNotify(RfidWifiScanEvents rfidwifiscanevents) {
-  	 IEvents.WifiScanEventData data = rfidwifiscanevents.getWifiScanEventData();
-     Log.d(TAG, "ssid: "+ data.wifiscandata.getssid()
-     + " Protocol:" + data.wifiscandata.getProtocol() +"\n");
-	 }
+//wifi Scan Data
+@Override
+public void eventWifiScanNotify(RfidWifiScanEvents rfidwifiscanevents) {
+    IEvents.WifiScanEventData data = rfidwifiscanevents.getWifiScanEventData();
+    Log.d(TAG, "eventWifiScanNotify: " + " ssid: "+ data.wifiscandata.getssid()
+            + " protocol:" + data.wifiscandata.getProtocol());
+}
      </code></pre>
 	 <p>Make Sure to register listeners using below code</p>
 											
@@ -277,7 +277,8 @@ wifiProfile.setssid("Zebra WiFi");
 wifiProfile.setprotocol(ENUM_WIFI_PROTOCOL_TYPE.WPA3_Personal_SAE);
 wifiProfile.setpassword("zebra@12345");
 wifiProfile.setconfig(wifiSecureConfig);
-RFIDResults rfidResults = reader.Config.wifiAddProfile(wifiProfile);
+boolean isWifiPreferred = true; // Notify Reader if this Wifi Profile take preference to connect
+RFIDResults rfidResults = reader.Config.wifiAddProfile(wifiProfile, isWifiPreferred);
 </code></pre>
 											
 <p>Please refer the sample code to add WiFi WPA2 Enterprise profile</p>		
@@ -295,7 +296,8 @@ wifiSecureConfig.setidentity("identity");
 wifiSecureConfig.setAnonymousIdentity("anonymous_password");
 wifiSecureConfig.setPassword("zebra@12345");
 wifiProfile.setconfig(wifiSecureConfig);
-RFIDResults rfidResults = reader.Config.wifiAddProfile(wifiProfile);
+boolean isWifiPreferred = true; // Notify Reader if this Wifi Profile take preference to connect
+RFIDResults rfidResults = reader.Config.wifiAddProfile(wifiProfile, isWifiPreferred);
  
 </code></pre>
 
@@ -305,6 +307,12 @@ RFIDResults rfidResults = reader.Config.wifiAddProfile(wifiProfile);
 <pre class="prettyprint"><code>
 List<WifiProfile> profilelist = new ArrayList<>();
 profilelist = reader.Config.wifiListProfile();
+WifiProfile connectedProfile = null;
+for (WifiProfile profile : profilelist) {
+    if (profile.getstate() != null && profile.getstate().equals(ENUM_WIFI_STATE.STATE_CONNECTED)) {
+        connectedProfile = profile; // Logic to identity connected Wifi Profile
+    }
+}
 </code></pre>
 
 <h2 id="code4" class="anchor"><a class="heading-anchor" href="#code4"><span></span></a>WiFi Delete Profile</h2>
@@ -317,10 +325,7 @@ RFIDResults rfidResults = reader.Config.wifiDeleteProfile("Zebra WiFi")
 <p>This API will return back the list of installed certificate in string format, by using this we can add enterprise profiles of different EAP</p>		
 <pre class="prettyprint"><code>
 ArrayList<String> wpaCertificates = new ArrayList<>();
-wpaCertificates = reader.Config.wifiGetCertificates();
-wifiSecureConfig.setcacert("ca_cert.pem");
-wifiSecureConfig.setclientcert("client_cert.pem");
-wifiSecureConfig.setPrivateKey("key.pem");
+wpaCertificates = reader.Config.getCertificates();
 </code></pre>
 
 <h2 id="code6" class="anchor"><a class="heading-anchor" href="#code6"><span></span></a>WiFi Connect Non Roaming</h2>

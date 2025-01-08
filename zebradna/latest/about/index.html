@@ -71,7 +71,7 @@
                         <li class="navbar-text pull-left"><strong>TechDocs</strong></li>
                         <p class="navbar-text">
                                             Zebra DNA Cloud
-                                            4.4
+                                            5.0
                         </p>
 
                     </ul>
@@ -82,37 +82,37 @@
 
 
                         <li>
-                            <a href="/zebradna/4-4/about">
+                            <a href="/zebradna/5-0/about">
                                     About
                             </a>
                         </li>
                         <li>
-                            <a href="/zebradna/4-4/setup">
+                            <a href="/zebradna/5-0/setup">
                                     Setup
                             </a>
                         </li>
                         <li>
-                            <a href="/zebradna/4-4/usage">
+                            <a href="/zebradna/5-0/usage">
                                     Usage
                             </a>
                         </li>
                         <li>
-                            <a href="/zebradna/4-4/licensing">
+                            <a href="/zebradna/5-0/licensing">
                                     Licensing
                             </a>
                         </li>
                         <li>
-                            <a href="/zebradna/4-4/design">
+                            <a href="/zebradna/5-0/design">
                                     Design
                             </a>
                         </li>
                         <li>
-                            <a href="/zebradna/4-4/faq">
+                            <a href="/zebradna/5-0/faq">
                                     FAQ
                             </a>
                         </li>
                         <li>
-                            <a href="/zebradna/4-4/search">
+                            <a href="/zebradna/5-0/search">
                                     <i class="fa fa-search"></i>
                             </a>
                         </li>
@@ -228,7 +228,7 @@
                                     <h1 id="about-zebra-dna-cloud" class="anchor"><a class="heading-anchor" href="#about-zebra-dna-cloud"><span></span></a>About Zebra DNA Cloud</h1>
                                     <p>
                                             Zebra DNA Cloud
-                                            4.4
+                                            5.0
                                     </p>
                                 </div>
                             </section>                    
@@ -247,7 +247,7 @@
     <a href="../usage/#step2c" class="btn btn-danger">See Specified Server method</a>  </p><p></p>
 </div>
 
-<p></p><h4 id="whatsnewinzebradnacloud44newinzdna44" class="anchor"><a class="heading-anchor" href="#whatsnewinzebradnacloud44newinzdna44"><span></span></a><a href="#newinzdna44">What's new in Zebra DNA Cloud 4.4</a></h4>
+<p></p><h4 id="whatsnewinzebradnacloud50newinzdna50" class="anchor"><a class="heading-anchor" href="#whatsnewinzebradnacloud50newinzdna50"><span></span></a><a href="#newinzdna50">What's new in Zebra DNA Cloud 5.0</a></h4>
 
 <h2 id="overview" class="anchor"><a class="heading-anchor" href="#overview"><span></span></a>Overview</h2>
 
@@ -260,37 +260,56 @@
 
 <hr>
 
-<!-- 11/27/24- presence features delayed, per eng
-
-* **Displays presence information** for ZDNA-managed devices:
- <img alt="image" style="height:250px" src="44_presence.png"/>
- _"Presence" info shown for ZDNA-managed devices, plus timeframe for last contact_.<br>
- _Click image to enlarge; ESC to exit_.
-
--->
-
-<h2 id="newinzdna44" class="anchor"><a class="heading-anchor" href="#newinzdna44"><span></span></a>New in ZDNA 4.4</h2>
+<h2 id="newinzdna50" class="anchor"><a class="heading-anchor" href="#newinzdna50"><span></span></a>New in ZDNA 5.0</h2>
 
 <ul>
-<li><strong>Introduces Support Tools section</strong>, initially including:
+<li><strong>Displays presence information</strong><i>†</i> on <a href="../usage/#mydevices">My Devices page</a> for all ZDNA-managed devices as well as GMS devices enrolled in third-party EMM systems.<i>‡</i><br> <i class="fa fa-exclamation-triangle" style="color:#FFA500;"></i> See important <a href="../usage/#devicepresence">Presence Usage Notes</a>.</li>
+
+<li><strong>Adds/upgrades the following <a href="../usage/#zebracollection">Zebra Collection apps</a></strong>:
 
 
 <ul>
-<li><strong>Remote Rxlogger</strong>: Enables device log capture from the ZDNA console; saves logs to customer-provided FTP server</li></ul>
+<li><strong>Identity Guardian 1.6.1</strong> </li>
+
+<li><strong>Wireless Insights 1.1</strong> diagnostics utility</li></ul>
 </li>
 
-<li><strong>Adds <a href="../support/rxlogger">Remote RxLogger Usage Guide</a></strong></li>
+<li>Adds <strong><a href="../support/wirelessinsights">Wireless Insights usage guide</a></strong> to Support Tools section</li>
 
-<li><strong>Now displays a CLS ID column</strong> on the Licensing page:
-<img alt="image" style="height:250px" src="44_clsID.jpg">
-<em>Click image to enlarge; ESC to exit</em>.
-<br></li>
+<li>Now Displays DNA Cloud server maintenance downtime information</li>
+
+<li><strong>Enhances pagination performance</strong> on the following pages:
+
+
+<ul>
+<li>DNA Cloud Users</li>
+
+<li>Device Users</li>
+
+<li>My Apps &gt; My Collection</li>
+
+<li>Android Updates &gt; Deployment and Automation</li></ul>
+</li>
+
+<li>Support added for OEMConfig 13.5.0.1</li>
 </ul>
 
-<!-- 11/25 removed from RN
+<p><i><font size="2" color="DimGrey"> † Presence information requires an update to <a href="../setup/#iconfigurenetwork">network settings</a>. </font></i>
+<br> 
+<i><font size="2" color="DimGrey"> ‡ Devices managed by third-party EMM systems require Zebra Common Transport Layer 2.1 or later. Available from <a href="https://play.google.com/store/apps/details?id=com.zebra.commontransportlayer&amp;hl=en_US">Google Play</a> <i class="fa fa-external-link" style="color:#3498DB;"></i></font></i><br>
+<br></p>
 
- * **Wireless Insights**: Displays dashboards of Cellular and Wi-Fi performance data of supported devices
-* Enhances pagination functionality on the Device Setup page
+<!-- 
+
+12/15/24- decided to remove image
+ <img alt="image" style="height:250px" src="50_presence.png"/>
+ _In addition to device presence, also displays timestamp for last connection_.<br>
+ _Click image to enlarge; ESC to exit_.
+
+
+12/14 removed from RN
+
+<i><font size="2" color="DimGrey"> &#42; Also supports the Zebra WS50, a non-GMS device. </font></i><br>
 
 -->
 
@@ -467,6 +486,26 @@
 <hr>
 
 <h2 id="versionhistory" class="anchor"><a class="heading-anchor" href="#versionhistory"><span></span></a>Version History</h2>
+
+<h3 id="addedinzdna44" class="anchor"><a class="heading-anchor" href="#addedinzdna44"><span></span></a>Added in ZDNA 4.4</h3>
+
+<ul>
+<li><strong>Introduces Support Tools section</strong>, initially including:
+
+
+<ul>
+<li><strong>Remote Rxlogger</strong>: Enables device log capture from the ZDNA console; saves logs to customer-provided FTP server</li></ul>
+</li>
+
+<li><strong>Adds <a href="../support/rxlogger">Remote RxLogger Usage Guide</a></strong></li>
+
+<li><strong>Now displays a CLS ID column</strong> on the Licensing page:
+<img alt="image" style="height:250px" src="44_clsID.jpg">
+<em>Click image to enlarge; ESC to exit</em>.
+<br></li>
+</ul>
+
+<hr>
 
 <h3 id="addedinzdna43" class="anchor"><a class="heading-anchor" href="#addedinzdna43"><span></span></a>Added in ZDNA 4.3</h3>
 

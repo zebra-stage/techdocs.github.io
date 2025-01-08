@@ -11,8 +11,8 @@
     <meta name="author" content="Zebra Technologies">
     <meta name="google-site-verification" content="i4B78BrWnNy8ShJwe5feRW3jO3HE6gfYlYqYbxfl8yY">
     <meta name="msvalidate.01" content="6B651B00161BCE79B8950AC09D5C4C75">
-    <meta title="Using Remote RxLogger">
-    <title>Using Remote RxLogger - TechDocs</title>
+    <meta title="Using Wireless Insights">
+    <title>Using Wireless Insights - TechDocs</title>
     <!-- core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 <!--     
@@ -139,7 +139,7 @@
                     <nav id="toc" data-toggle="toc" data-spy="affix" style="height: 75%; max-width: 225px; overflow-y: auto; ">
                         
                         <ul class="nav">
-                            <li><strong>Using Remote RxLogger</strong></li>
+                            <li><strong>Using Wireless Insights</strong></li>
                         </ul>
                     </nav>
                     <div class="modal fade" id="modal-smartdocs" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" data-backdrop="true">
@@ -225,7 +225,7 @@
                         <div class="col-sm-12">
                             <section id="cta" class="wow fadeIn">
                                 <div class="">
-                                    <h1 id="using-remote-rxlogger" class="anchor"><a class="heading-anchor" href="#using-remote-rxlogger"><span></span></a>Using Remote RxLogger</h1>
+                                    <h1 id="using-wireless-insights" class="anchor"><a class="heading-anchor" href="#using-wireless-insights"><span></span></a>Using Wireless Insights</h1>
                                     <p>
                                             Zebra DNA Cloud
                                             5.0
@@ -243,132 +243,149 @@
 
                                         <p></p><h2 id="overview" class="anchor"><a class="heading-anchor" href="#overview"><span></span></a>Overview</h2>
 
-<p><strong>Remote RxLogger provides a cloud-based interface for controlling the <a href="/rxlogger">RxLogger data collection utility</a> preinstalled on all Zebra devices</strong>. When launching RxLogger, the most common data collection modules are enabled by default and cannot be deselected. Optional modules can be enabled based on the specific problem being diagnosed. </p>
+<p><strong>The Wireless Insights service provides real-time performance data for active Zebra Android devices, including Wi-Fi and cellular connection events, signal strength and service quality by carrier, device and/or device group</strong>. The service is part of the Zebra Collection in My Apps section and is free to use on supported devices without additional licensing.</p>
 
-<p><img alt="" style="height:350px" src="44_rxlogr_logs.jpg">
+<p><img alt="" style="height:350px" src="wi_dashboard_overview.jpg">
+<em>The Wireless Insights dashboard shows real-time Wi-Fi (top row) and cellular performance for active devices</em>.<br>
+<em>Click image to enlarge; ESC to exit</em>.<br>
 <br></p>
 
-<p><i class="fa fa-check-circle" style="color:#27AE60;"></i> <strong>Click on a module name for more information</strong>. </p>
-
-<h4 id="defaultmodules" class="anchor"><a class="heading-anchor" href="#defaultmodules"><span></span></a>Default Modules</h4>
+<h3 id="requirements" class="anchor"><a class="heading-anchor" href="#requirements"><span></span></a>Requirements</h3>
 
 <ul>
-<li><a href="/rxlogger/latest/guide/modules/#anrmodule">ANR</a></li>
+<li><strong>Wi-Fi performance</strong>: Any Zebra device running Android 13 or later </li>
 
-<li><a href="/rxlogger/latest/guide/modules/#kernelmodule">Kernel</a></li>
-
-<li><a href="/rxlogger/latest/guide/modules/#logcatmodule">Logcat</a></li>
-
-<li><a href="/rxlogger/latest/guide/modules/#ramoopsmodule">Ramoops</a></li>
-
-<li><a href="/rxlogger/latest/guide/modules/#resourcemodule">Resource</a></li>
-
-<li><a href="/rxlogger/latest/guide/modules/#snapshotmodule">Snapshot</a></li>
-
-<li><a href="/rxlogger/latest/guide/modules/#tombstonemodule">Tombstone</a></li>
+<li><strong>Cellular performance</strong>: A TC26 or any 6490-platform device running Android 13 or later</li>
 </ul>
 
-<h4 id="optionalmodules" class="anchor"><a class="heading-anchor" href="#optionalmodules"><span></span></a>Optional Modules</h4>
-
-<ul>
-<li><a href="/rxlogger/latest/guide/modules/#btsnooplogmodule">BTSnooplog</a></li>
-
-<li><a href="/rxlogger/latest/guide/modules/#ltsmodule">LTS</a></li>
-
-<li><a href="/rxlogger/latest/guide/modules/#qxdmmodule">Qxdm</a></li>
-
-<li><a href="/rxlogger/latest/guide/modules/#recoverymodule">Recovery</a></li>
-
-<li><a href="/rxlogger/latest/guide/modules/#tcpdumpmodule">Tcpdump</a></li>
-</ul>
-
-<!-- 
-`THIS ONE IS ON TECHDOCS BUT NOT IN DNA CLOUD:`
-* [Instant Logging](/rxlogger/latest/guide/modules/#instantloggingmodule)
- -->
+<blockquote>
+  <p><i class="fa fa-check-circle" style="color:#27AE60;"></i> See a list of <a href="https://supportcommunity.zebra.com/s/article/000022440?language=en_US">Zebra devices by platform</a></p>
+</blockquote>
 
 <hr>
 
-<h3 id="remotelogging" class="anchor"><a class="heading-anchor" href="#remotelogging"><span></span></a>Remote Logging</h3>
-
-<h4 id="tostartloggingremotely" class="anchor"><a class="heading-anchor" href="#tostartloggingremotely"><span></span></a>To Start Logging Remotely:</h4>
+<h3 id="usingwirelessinsights" class="anchor"><a class="heading-anchor" href="#usingwirelessinsights"><span></span></a>Using Wireless Insights</h3>
 
 <ol>
 <li><p><strong>Click "Support Tools"</strong> From the DNA Cloud Dashboard to expose available modules: 
-<img alt="" style="height:350px" src="44_rxlog_01.jpg">
+<img alt="" style="height:350px" src="wi_selection.jpg">
 <em>Click image to enlarge; ESC to exit</em>.
 <br>
 <br></p></li>
 
-<li><p><strong>Click "Remote RxLogger"</strong> to bring up the Jobs screen, <strong>then click "Collect New Job" button</strong>: 
-<img alt="" style="height:350px" src="44_rxlog_02.jpg">
+<li><p><strong>Click "Wireless Insights"</strong> to view the interactive Wireless Insights Dashboard.<br>
+Real-time data is shown for currently active devices over the last 24 hours; Wi-Fi on top, cellular below: 
+<img alt="" style="height:350px" src="wi_dashboard.jpg">
 <em>Click image to enlarge; ESC to exit</em>.
 <br>
 <br></p></li>
 
-<li><p><strong>Enter information for the job</strong>, where to save collected data and the collection modules to enable:<br> 
-&nbsp;&nbsp;&nbsp; a. <strong>Job Name</strong> (max. 20 characters)<br> 
-&nbsp;&nbsp;&nbsp; b. <strong>Description</strong> (to help identify the job later)<br>
-&nbsp;&nbsp;&nbsp; c. <strong>Duration</strong> (length of time to collect log data)<br>
-&nbsp;&nbsp;&nbsp; d. <strong>Hosting Location</strong> (an FTP/S server URL on which you have read/write access) <a href="#ftpsserverurlsyntax">Details below</a>.<br>
-&nbsp;&nbsp;&nbsp; e. <strong>Logging Modules</strong> (type of data to collect in addition to defaults) (<a href="/rxlogger/latest/guide/modules">See module info</a>)<br>
-When all data is entered, <strong>click "Next" to continue</strong>:
-<img alt="" style="height:350px" src="44_rxlog_04a.jpg">
+<li><p><strong>Click the date selector</strong> to analyze wireless data for a particular date and/or time range (max. = 30 days):
+<img alt="" style="height:350px" src="wireless_insights_03a.jpg">
 <em>Click image to enlarge; ESC to exit</em>.
 <br>
 <br></p></li>
 
-<li><p><strong>Review settings</strong> and <strong>click “Apply Now”</strong> to proceed:
-<img alt="" style="height:350px" src="44_rxlog_08.jpg">
+<li><p><strong>Click on a graph section</strong> to display the number of effected devices: 
+<img alt="" style="height:350px" src="wi_interaction.jpg">
 <em>Click image to enlarge; ESC to exit</em>.
 <br>
 <br></p></li>
 
-<li><p><strong>Select one or more target devices</strong> from which to capture logs.<br>
-<strong>Click "Start Logging"</strong> to begin capturing logs from selected devices:
-<img alt="" style="height:350px" src="44_rxlog_09.jpg">
+<li><p><strong>Double-click a graph section</strong> (as in image above) to display more information about the effected devices:
+<img alt="" style="height:250px" src="wi_result.jpg">
 <em>Click image to enlarge; ESC to exit</em>.
 <br>
-<i class="fa fa-check-circle" style="color:#27AE60;"></i> <strong>Logging begins on selected devices; console returns to Jobs screen</strong>. 
 <br></p></li>
 
-<li><p>From the Jobs screen, <strong>check the status of current and previous jobs</strong>.<br>
-<strong>Click on any job to view its details, applied device(s) and status</strong>: 
-<img alt="" style="height:350px" src="44_rxlog_02a.jpg">
+<li><p><strong>Scroll down from Dashboard</strong> to view reports for the Device Group(s) selected in previous step.<br>
+<strong>Click arrows to sort and/or filter reports as desired</strong>:
+<img alt="" style="height:350px" src="wi_report_options.jpg">
+<em>Click image to enlarge; ESC to exit</em>.
+<br>
+<br></p></li>
+
+<li><p><strong>Click Wi-Fi or Cellular in a group row</strong> to view additional data for that group. <br>
+Within that Group, <strong>click Wi-Fi or Cellular</strong> in a device row to view data for that device (as in the image below).
+<img alt="" style="height:350px" src="wi_device_add_group.jpg">
+<em>Click image to enlarge; ESC to exit</em>.
+<br>
+<br></p></li>
+
+<li><p><strong>Clicking on Wi-Fi or Cellular for an individual device</strong> (from screen above) displays performance stats for that device: 
+<img alt="" style="height:450px" src="wi_device_69.jpg">
+<em>Click image to enlarge; ESC to exit</em>.
+<br>
+<br></p></li>
+
+<li><p><strong>Click tabs</strong> to view different reports.<br>
+<strong>Click on "breadcrumbs"</strong> to navigate to previous screens.
+<img alt="" style="height:350px" src="wi_69_breadcrumbs.jpg">
+<em>Click image to enlarge; ESC to exit</em>.
+<br>
+<br></p></li>
+
+<li><p><strong>Click "Export"</strong> from the Dashboard to archive data or perform further analysis: 
+<img alt="" style="height:350px" src="wireless_insights_03b.jpg">
 <em>Click image to enlarge; ESC to exit</em>.
 <br>
 <br></p></li>
 </ol>
 
-<blockquote>
-  <p><i class="fa fa-check-circle" style="color:#27AE60;"></i> After the capture duration has ended, logs are copied to the specified FTP/S host and erased from device(s). </p>
-</blockquote>
+<!-- <i class="fa fa-check-circle" style="color:#27AE60;"></i> **End of usage docs message**.   -->
 
 <hr>
 
-<h3 id="ftpsserverurlsyntax" class="anchor"><a class="heading-anchor" href="#ftpsserverurlsyntax"><span></span></a>FTP/S Server URL Syntax</h3>
+<h3 id="enablingwirelessinsights" class="anchor"><a class="heading-anchor" href="#enablingwirelessinsights"><span></span></a>Enabling Wireless Insights</h3>
 
-<p><strong>The syntax for the Hosting Location field of Remote RxLogger is shown below, followed by an example</strong>:</p>
+<p><strong>Wireless Insights requires an agent to be present on all devices</strong> from which wireless data is to be extracted. There's also a one-time configuration change in the "My Services" section of the DNA Cloud console. Details below. </p>
 
-<ul>
-<li><strong>Syntax</strong>:
+<h4 id="tosetupwirelessinsights" class="anchor"><a class="heading-anchor" href="#tosetupwirelessinsights"><span></span></a>To Set Up Wireless Insights</h4>
 
+<ol>
+<li><p><strong>In the DNA Cloud console, click on the User Account</strong> (upper-right corner) and select "My Services" from the drop-down menu.<br> 
+A screen appears similar to the image below.<br>
+In the Wireless Insights Service Info box, <strong>click "Enable" button</strong> (if not already enabled).
+<img alt="" style="height:350px" src="wi_service_enable.jpg">
+<em>Click image to enlarge; ESC to exit</em>.
+<br>
+<br></p></li>
 
-<ul>
-<li><code>ftp://user:password@host:port/URLpath</code></li></ul>
-</li>
+<li><p><strong>Click &lt;- Back</strong> in the upper-left corner to return to the DNA console's main screen. </p></li>
 
-<li><strong>Example</strong>: 
+<li><p>From the main screen, <strong>click My Apps</strong> to display the Zebra Collection screen: <br>
+<img alt="" style="height:350px" src="wi_myapps.jpg">
+<em>Click image to enlarge; ESC to exit</em>.
+<br>
+<br></p></li>
 
+<li><p><strong>Click "Setup" button in "Wireless Insights"</strong> tile of the Zebra Collection. </p></li>
 
-<ul>
-<li><code>ftp://user01:PassMe01@10.0.0.7:21/ftp</code></li></ul>
-</li>
-</ul>
+<li><p><strong>See <a href="../../usage/#zebracollection">Setting up a Zebra App</a></strong> for further instructions. </p></li>
+</ol>
 
-<blockquote>
-  <p>For further details, <strong>see <a href="https://supportcommunity.zebra.com/s/article/000030850?language=en_US">How to format an FTP/S server URL</a></strong> <i class="fa fa-external-link" style="color:#3498DB;"></i>, an article posted by the Zebra Tech Support team. </p>
-</blockquote><p></p>
+<!-- 
+> <i class="fa fa-check-circle" style="color:#27AE60;"></i> After the capture duration has ended, logs are copied to the specified FTP/S host and erased from device(s). 
+
+&nbsp;&nbsp;&nbsp; a. **Job Name** (max. 20 characters)<br> 
+&nbsp;&nbsp;&nbsp; b. **Description** (to help identify the job later)<br>
+&nbsp;&nbsp;&nbsp; c. **Duration** (length of time to collect log data)<br>
+&nbsp;&nbsp;&nbsp; d. **Hosting Location** (an FTP/S server URL on which you have read/write access) [Details below](#ftpsserverurlsyntax).<br>
+&nbsp;&nbsp;&nbsp; e. **Logging Modules** (type of data to collect in addition to defaults) ([See module info](/rxlogger/latest/guide/modules))<br>
+
+FROM EARLY VERSION OF RELEASE NOTES:
+
+- All the tabs of for both wifi and cellular is implemented and working 
+- Shows 6 additional voice events in Wifi All analysis tab 
+- Provides options to export all events within the user selected time range for both wifi and cellular 
+- User can search a device with different combinations like device model serial number etc 
+- >>>>> huh? The uploaded data from the device get stored in low-cost storage after 30 days 
+- UI responsiveness is faster 
+- User has option to move event time graph using a slider 
+
+ -->
+
+<hr><p></p>
                                         
 
 

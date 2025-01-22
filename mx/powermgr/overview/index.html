@@ -55,6 +55,8 @@
 
 <li>Wake-up sources (device buttons)</li>
 
+<li>Wake on touch of the device screen</li>
+
 <li>Individual buttons to wake device  </li>
 
 <li>Keyboard heater on VC8300 devices</li>
@@ -97,6 +99,10 @@
 <p><strong>Note: The Enterprise Reset Action causes the device to Reboot (into Recovery Mode), preventing any subsequent Actions from executing</strong>, including the submission of a Result XML to the application sending the original request. </p>
 
 <p><strong><u>BEST PRACTICE</u></strong>: Enterprise Reset should be triggered <u>only</u> through Power Manager and <u>only</u> with the Setup Wizard Bypass flag set to "true." Manually triggering Enterprise Reset without setting the bypass flag could leave the device in an unexpected state.</p>
+
+<blockquote>
+  <p><i class="fa fa-exclamation-circle" style="color:#FF0000;"></i> <strong>Setup Wizard Bypass is discontinued on devices running Android 13 and later</strong>.</p>
+</blockquote>
 
 <h3 id="factoryreset" class="anchor"><a class="heading-anchor" href="#factoryreset"><span></span></a>Factory Reset</h3>
 

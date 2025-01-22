@@ -343,6 +343,7 @@
                                 <li class="smartdocs-mx" data-value="13.3"><a>13.3</a></li>
                                 <li class="smartdocs-mx" data-value="13.4"><a>13.4</a></li>
                                 <li class="smartdocs-mx" data-value="13.5"><a>13.5</a></li>
+                                <li class="smartdocs-mx" data-value="14.0"><a>14.0</a></li>
                               </ul>
                               </li>
                         
@@ -802,6 +803,62 @@
                                     
                                     
                                     
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                         <div class="" data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="" data-api="" data-smartdoc="">
 
                                     <h2 class="anchor" id="overview"><a class="heading-anchor" href="#overview"><span></span></a>Overview</h2>
@@ -860,6 +917,8 @@
 
 <li>Wake-up sources (device buttons)</li>
 
+<li>Wake on touch of the device screen</li>
+
 <li>Individual buttons to wake device  </li>
 
 <li>Keyboard heater on VC8300 devices</li>
@@ -902,6 +961,10 @@
 <p><strong>Note: The Enterprise Reset Action causes the device to Reboot (into Recovery Mode), preventing any subsequent Actions from executing</strong>, including the submission of a Result XML to the application sending the original request. </p>
 
 <p><strong><u>BEST PRACTICE</u></strong>: Enterprise Reset should be triggered <u>only</u> through Power Manager and <u>only</u> with the Setup Wizard Bypass flag set to "true." Manually triggering Enterprise Reset without setting the bypass flag could leave the device in an unexpected state.</p>
+
+<blockquote>
+  <p><i class="fa fa-exclamation-circle" style="color:#FF0000;"></i> <strong>Setup Wizard Bypass is discontinued on devices running Android 13 and later</strong>.</p>
+</blockquote>
 
 <h3 id="factoryreset" class="anchor"><a class="heading-anchor" href="#factoryreset"><span></span></a>Factory Reset</h3>
 
@@ -1037,46 +1100,6 @@ This step is optional because the OS Update Action automatically triggers a devi
                                     
                                     
                                 </div> 
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                     
                                     
                                     
@@ -1545,65 +1568,6 @@ This step is optional because the OS Update Action automatically triggers a devi
                                     
                                     
                                     
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                        <div class="" data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="8.1" data-api="26" data-smartdoc="">
-
-                                    <h2 class="anchor" id="update-verification-file"><a class="heading-anchor" href="#update-verification-file"><span></span></a>Update Verification File</h2>
-                                    <p class=""></p><p>Used to enter the path and filename of the manifest in the device file system to be used to verify an OS update. The manifest is an XML file delivered in the OS update .zip file. The "Verify OS Update" Reset Action compares settings specified in the manifest with those on the device to confirm OS- and hardware-level device compatibility requirements before allowing an OS update procedure to continue. <strong>Supported only on devices running Android 8.x Oreo and later</strong>. <a href="#manifestfilesample">See sample manifest</a>.</p>
-
-<p><strong>Parm value input rules</strong>: </p>
-
-<ul>
-<li>String from 1–255 characters containing a full path and file name </li>
-</ul><p></p>
-                                        <blockquote>
-                                        <p><b>Note:</b> Supported only on devices running Android 8.x Oreo and later.</p>
-                                        <p><b>Shown if:</b> The Reset Action is "OS Update" or "OS Upgrade" or "OS Downgrade"</p>
-                                        <p><b>Parm Name:</b> OsupdateVerifyFile</p>
-                                        <!-- <p><b>Pivotal Parm:</b> No</p> -->
-                                        <p><b>Requires:</b> 
-                                            </p><ul>
-                                                <li>MX: 8.1+ </li>
-                                                <li>Android API: 26+ </li>
-                                           </ul>
-                                        <p></p>
-                                        
-
-                                        
-                                        </blockquote>
-                                    
-                                    
-                                    
-                                </div> 
                                     
                                     
                                     
@@ -2171,6 +2135,40 @@ command:EnterpriseReset
                                 </div> 
                                     
                                     
+                                        <div class="" data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="8.1" data-api="26" data-smartdoc="">
+
+                                    <h2 class="anchor" id="update-verification-file"><a class="heading-anchor" href="#update-verification-file"><span></span></a>Update Verification File</h2>
+                                    <p class=""></p><p>Used to enter the path and filename of the manifest in the device file system to be used to verify an OS update. The manifest is an XML file delivered in the OS update .zip file. The "Verify OS Update" Reset Action compares settings specified in the manifest with those on the device to confirm OS- and hardware-level device compatibility requirements before allowing an OS update procedure to continue. <strong>Supported only on devices running Android 8.x Oreo and later</strong>. <a href="#manifestfilesample">See sample manifest</a>.</p>
+
+<p><strong>Parm value input rules</strong>: </p>
+
+<ul>
+<li>String from 1–255 characters containing a full path and file name </li>
+</ul><p></p>
+                                        <blockquote>
+                                        <p><b>Note:</b> Supported only on devices running Android 8.x Oreo and later.</p>
+                                        <p><b>Shown if:</b> The Reset Action is "OS Update" or "OS Upgrade" or "OS Downgrade"</p>
+                                        <p><b>Parm Name:</b> OsupdateVerifyFile</p>
+                                        <!-- <p><b>Pivotal Parm:</b> No</p> -->
+                                        <p><b>Requires:</b> 
+                                            </p><ul>
+                                                <li>MX: 8.1+ </li>
+                                                <li>Android API: 26+ </li>
+                                           </ul>
+                                        <p></p>
+                                        
+
+                                        
+                                        </blockquote>
+                                    
+                                    
+                                    
+                                </div> 
+                                    
+                                    
+                                    
+                                    
+                                    
                                     
                                     
                                     
@@ -2246,10 +2244,10 @@ command:EnterpriseReset
                                     <p class=""></p><p>Used to select whether to display Upgrade and Downgrade actions for selection while the device is in Recovery Mode. Selection of such options could lead to unwanted changes to device behavior, removal of theft deterrent measures and/or other unwanted activities. Selecting "Partial" (option 2) displays only "Reboot system now," "View recovery logs" and "Power off" functions for selection.</p>
 
 <blockquote>
-  <p><i class="fa fa-exclamation-circle" style="color:#FF0000;"></i> <strong>IMPORTANT PERSISTENCE NOTE</strong>: This setting persists on the device <u><strong>ONLY if the Enterprise Reset is performed from a barcode</strong></u>. Resetting the device through the Android system UI or by an other means removes any settings created for this feature.</p>
+  <p><i class="fa fa-exclamation-circle" style="color:#FF0000;"></i> <strong>IMPORTANT PERSISTENCE NOTE</strong>: This setting persists on the device <u><strong>ONLY if the Enterprise Reset / Factory Reset is initiated by a barcode</strong></u>. Resetting the device through the Android Settings panel or by any other means removes all settings created for this feature.<br><br> <i class="fa fa-exclamation-triangle" style="color:#FFA500;"></i> <strong>On devices runnning Android 13, <u>this feature requires MX 13.2</u></strong>.</p>
 </blockquote>
 
-<h4 id="iclassfafaexclamationcirclestylecolorff0000iplatformnote" class="anchor"><a class="heading-anchor" href="#iclassfafaexclamationcirclestylecolorff0000iplatformnote"><span></span></a><i class="fa fa-exclamation-circle" style="color:#FF0000;"></i> Platform Note</h4>
+<h4 id="iclassfafaexclamationcirclestylecolorff0000iplatformnotes" class="anchor"><a class="heading-anchor" href="#iclassfafaexclamationcirclestylecolorff0000iplatformnotes"><span></span></a><i class="fa fa-exclamation-circle" style="color:#FF0000;"></i> Platform Notes</h4>
 
 <p><strong>This feature is <u>supported ONLY on the following platforms</u></strong> and requires the following Android- and platform-specific OSX versions.<br></p>
 
@@ -2270,7 +2268,7 @@ command:EnterpriseReset
 
 <p>See a list of <strong><a href="https://supportcommunity.zebra.com/s/article/000022440?language=en_US">Zebra devices by platform</a></strong></p><p></p>
                                         <blockquote>
-                                        <p><b>Note:</b> This feature requires Android- and platform-specific versions of OSX. See Platform Note.</p>
+                                        <p><b>Note:</b> Requires Android- and platform-specific versions of OSX. See Platform Notes. On devices runnning Android 13, this feature requires MX 13.2.</p>
                                         <p><b>Parm Name:</b> RecoveryModeAccess</p>
                                         <!-- <p><b>Pivotal Parm:</b> Yes</p> -->
                                         
@@ -2290,7 +2288,7 @@ command:EnterpriseReset
                                                 <th>Status</th>
                                                 <th>Requires</th>
                                             </tr>
-                                            <tr data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="13.1" data-devicetype="A,B" data-api="33" data-smartdoc="">
+                                            <tr data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="13.1" data-devicetype="A,B" data-api="30" data-smartdoc="">
                                                 <td>0</td>
                                                 <td>Do not change</td>
                                                 <td>This value (or the absence of this parm from the XML) will cause no action to be performed on the device; any previously selected setting will be retained.</td>
@@ -2309,13 +2307,13 @@ command:EnterpriseReset
                                                     
 
                                                         <p>MX: 13.1+ </p>
-                                                        <p>Android API: 33+ </p>
+                                                        <p>Android API: 30+ </p>
                                                     
                                                 </td> 
                                                 
                                             </tr>
                                             
-                                            <tr data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="13.1" data-devicetype="A,B" data-api="33" data-smartdoc="">
+                                            <tr data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="13.1" data-devicetype="A,B" data-api="30" data-smartdoc="">
                                                 <td>1</td>
                                                 <td>Full (default)</td>
                                                 <td>Displays all Recovery Mode actions for selection, including Upgrade and Downgrade.</td>
@@ -2334,13 +2332,13 @@ command:EnterpriseReset
                                                     
 
                                                         <p>MX: 13.1+ </p>
-                                                        <p>Android API: 33+ </p>
+                                                        <p>Android API: 30+ </p>
                                                     
                                                 </td> 
                                                 
                                             </tr>
                                             
-                                            <tr data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="13.1" data-devicetype="A,B" data-api="33" data-smartdoc="">
+                                            <tr data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="13.1" data-devicetype="A,B" data-api="30" data-smartdoc="">
                                                 <td>2</td>
                                                 <td>Partial (blocks sensitive operations)</td>
                                                 <td>Displays only "Reboot system now," "View recovery logs" and "Power off" functions for selection.</td>
@@ -2359,7 +2357,7 @@ command:EnterpriseReset
                                                     
 
                                                         <p>MX: 13.1+ </p>
-                                                        <p>Android API: 33+ </p>
+                                                        <p>Android API: 30+ </p>
                                                     
                                                 </td> 
                                                 
@@ -2370,6 +2368,11 @@ command:EnterpriseReset
                                     </div>	
                                     
                                 </div> 
+                                    
+                                    
+                                    
+                                    
+                                    
                                     
                                     
                                     
@@ -2535,17 +2538,11 @@ command:EnterpriseReset
                                         <div class="">
                                     
                                     <h2 class="anchor" id="setup-wizard-bypass"><a class="heading-anchor" href="#setup-wizard-bypass"><span></span></a>Setup Wizard Bypass</h2>
-                                    <p class=""></p><p>Controls whether to bypass the Android "setup wizard" (also known as the "Welcome Screen") following any Enterprise Reset. <strong>Applies only on devices with Google Mobile Services (GMS)</strong>. </p>
+                                    <p class=""></p><p>Controls whether to bypass the Android "setup wizard" (also known as the "Welcome Screen") following any Enterprise Reset. <strong>Applies only on devices with Google Mobile Services (GMS)</strong>. <i class="fa fa-exclamation-triangle" style="color:#FFA500;"></i> Once applied, this setting persists on the device and is effective following all subsequent Enterprise Resets until it is explicitly changed using PowerMgr or cleared by a Factory Reset.</p>
 
 <blockquote>
-  <p><strong>Important: Once applied, this setting persists on the device</strong> and is effective following all subsequent Enterprise Resets until it is explicitly changed using PowerMgr or cleared by initiating a Factory Reset. </p>
-</blockquote>
-
-<!-- 6/15/21- removed per eng.
-If SUW bypass is desired following an Enterprise Reset, this parameter must be included and set to "true" in the same Profile that is used to initiate the Enterprise Reset. The bypass flag was intended to be available as an option ONLY when Enterprise Reset is selected. However, **MX 7.1 and 7.2 allow SUW bypass to be configurable regardless of the Enterprise Reset parameter setting**. Once pushed to such devices, a bypass flag value of "true" will persist until an Enterprise Reset is executed or the flag is changed to "false" by a subsequent profile.
--->
-
-<p><strong><u>NOTE</u></strong>: Once running, the setup wizard can be exited <strong>on some devices</strong> by scanning a barcode. <a href="/stagenow/latest/Profiles/wipedevice/#setupwizardmanualbypass">More info</a>. </p><p></p>
+  <p><i class="fa fa-exclamation-circle" style="color:#FF0000;"></i> <strong>This feature is discontinued on devices running Android 13 and later</strong>. However, bypass is still supported if data entered through the Setup Wizard was configured to persist on the device. Learn <a href="/mx/persistmgr">about data persistence</a>.</p>
+</blockquote><p></p>
                                         <blockquote>
                                         <p><b><u>Status</u>:</b> Feature discontinued on devices running Android 13 and later.</p>
                                         <p><b>Shown if:</b> The Reset Action is "Enterprise Reset"</p>
@@ -2696,112 +2693,22 @@ If SUW bypass is desired following an Enterprise Reset, this parameter must be i
                                     
                                     
                                     
-                                        <div class="">
-                                    
-                                    <h2 class="anchor" id="suppress-reboot"><a class="heading-anchor" href="#suppress-reboot"><span></span></a>Suppress Reboot</h2>
-                                    <p class=""></p><p>Controls whether the device reboots following a full-OS package Upgrade (download or streaming) on a SDM660 device running Android 8.x Oreo or later. <strong>Not supported for differential or LifeGuard updates on devices running Android 10 or earlier</strong>.</p><p></p>
-                                        <blockquote>
-                                        <p><b>Note:</b> Supported only for full-OS package Upgrade Actions on SDM660-platform devices running Android 8.x Oreo or later.</p>
-                                        <p><b>Shown if:</b> The Reset Action is "OS Upgrade" OR "OS Upgrade Streaming"</p>
-                                        <p><b>Parm Name:</b> SuppressReboot</p>
-                                        <!-- <p><b>Pivotal Parm:</b> No</p> -->
-                                        
-
-                                        
-                                        </blockquote>
                                     
                                     
-                                    <div>
-                                        <table class="table">
-                                            <tbody><tr>
-                                                <th>Option</th>
-                                                <th>Name</th>
-                                                <th>Description</th>
-                                           <!-- <th>Model</th> -->
-                                                <th>Note</th>
-                                                <th>Status</th>
-                                                <th>Requires</th>
-                                            </tr>
-                                            <tr data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="8.1" data-devicetype="A" data-api="" data-smartdoc="">
-                                                <td>0</td>
-                                                <td>Do Nothing</td>
-                                                <td>This value (or the absence of this parm from the XML) causes no action on the device; the default value is used.</td>
-                                                <td></td>
-
-                                                <td></td>
-
-
-                                        <!-- DEVICETYPE LOGIC FOR LIST TABLE --> 
-                                        
-<!--                                                <td> 
- -->                                                    <!-- A -->
-<!--                                                     N/A on TC20/TC25
-                                                </td>
- -->                                                
-                                                <td>
-                                                    
-
-                                                        <p>MX: 8.1+ </p>
-                                                    
-                                                </td> 
-                                                
-                                            </tr>
-                                            
-                                            <tr data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="8.1" data-devicetype="A" data-api="" data-smartdoc="">
-                                                <td>1</td>
-                                                <td>true</td>
-                                                <td>Prevents the device from rebooting following an OS Upgrade or OS Upgrade Streaming Action.</td>
-                                                <td></td>
-
-                                                <td></td>
-
-
-                                        <!-- DEVICETYPE LOGIC FOR LIST TABLE --> 
-                                        
-<!--                                                <td> 
- -->                                                    <!-- A -->
-<!--                                                     N/A on TC20/TC25
-                                                </td>
- -->                                                
-                                                <td>
-                                                    
-
-                                                        <p>MX: 8.1+ </p>
-                                                    
-                                                </td> 
-                                                
-                                            </tr>
-                                            
-                                            <tr data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="8.1" data-devicetype="A" data-api="" data-smartdoc="">
-                                                <td>2</td>
-                                                <td>false</td>
-                                                <td>Allows the device to reboot following an OS Upgrade or OS Upgrade Streaming Action.</td>
-                                                <td></td>
-
-                                                <td></td>
-
-
-                                        <!-- DEVICETYPE LOGIC FOR LIST TABLE --> 
-                                        
-<!--                                                <td> 
- -->                                                    <!-- A -->
-<!--                                                     N/A on TC20/TC25
-                                                </td>
- -->                                                
-                                                <td>
-                                                    
-
-                                                        <p>MX: 8.1+ </p>
-                                                    
-                                                </td> 
-                                                
-                                            </tr>
-                                            
-                                            
-                                        </tbody></table>
-                                    </div>	
                                     
-                                </div> 
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                     
                                     
                                     
@@ -2918,22 +2825,112 @@ If SUW bypass is desired following an Enterprise Reset, this parameter must be i
                                     
                                     
                                     
+                                        <div class="">
+                                    
+                                    <h2 class="anchor" id="suppress-reboot"><a class="heading-anchor" href="#suppress-reboot"><span></span></a>Suppress Reboot</h2>
+                                    <p class=""></p><p>Controls whether the device reboots following a full-OS package Upgrade (download or streaming) on a SDM660 device running Android 8.x Oreo or later. <strong>Not supported for differential or LifeGuard updates on devices running Android 10 or earlier</strong>.</p><p></p>
+                                        <blockquote>
+                                        <p><b>Note:</b> Supported only for full-OS package Upgrade Actions on SDM660-platform devices running Android 8.x Oreo or later.</p>
+                                        <p><b>Shown if:</b> The Reset Action is "OS Upgrade" OR "OS Upgrade Streaming"</p>
+                                        <p><b>Parm Name:</b> SuppressReboot</p>
+                                        <!-- <p><b>Pivotal Parm:</b> No</p> -->
+                                        
+
+                                        
+                                        </blockquote>
                                     
                                     
+                                    <div>
+                                        <table class="table">
+                                            <tbody><tr>
+                                                <th>Option</th>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                           <!-- <th>Model</th> -->
+                                                <th>Note</th>
+                                                <th>Status</th>
+                                                <th>Requires</th>
+                                            </tr>
+                                            <tr data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="8.1" data-devicetype="A" data-api="" data-smartdoc="">
+                                                <td>0</td>
+                                                <td>Do Nothing</td>
+                                                <td>This value (or the absence of this parm from the XML) causes no action on the device; the default value is used.</td>
+                                                <td></td>
+
+                                                <td></td>
+
+
+                                        <!-- DEVICETYPE LOGIC FOR LIST TABLE --> 
+                                        
+<!--                                                <td> 
+ -->                                                    <!-- A -->
+<!--                                                     N/A on TC20/TC25
+                                                </td>
+ -->                                                
+                                                <td>
+                                                    
+
+                                                        <p>MX: 8.1+ </p>
+                                                    
+                                                </td> 
+                                                
+                                            </tr>
+                                            
+                                            <tr data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="8.1" data-devicetype="A" data-api="" data-smartdoc="">
+                                                <td>1</td>
+                                                <td>true</td>
+                                                <td>Prevents the device from rebooting following an OS Upgrade or OS Upgrade Streaming Action.</td>
+                                                <td></td>
+
+                                                <td></td>
+
+
+                                        <!-- DEVICETYPE LOGIC FOR LIST TABLE --> 
+                                        
+<!--                                                <td> 
+ -->                                                    <!-- A -->
+<!--                                                     N/A on TC20/TC25
+                                                </td>
+ -->                                                
+                                                <td>
+                                                    
+
+                                                        <p>MX: 8.1+ </p>
+                                                    
+                                                </td> 
+                                                
+                                            </tr>
+                                            
+                                            <tr data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="8.1" data-devicetype="A" data-api="" data-smartdoc="">
+                                                <td>2</td>
+                                                <td>false</td>
+                                                <td>Allows the device to reboot following an OS Upgrade or OS Upgrade Streaming Action.</td>
+                                                <td></td>
+
+                                                <td></td>
+
+
+                                        <!-- DEVICETYPE LOGIC FOR LIST TABLE --> 
+                                        
+<!--                                                <td> 
+ -->                                                    <!-- A -->
+<!--                                                     N/A on TC20/TC25
+                                                </td>
+ -->                                                
+                                                <td>
+                                                    
+
+                                                        <p>MX: 8.1+ </p>
+                                                    
+                                                </td> 
+                                                
+                                            </tr>
+                                            
+                                            
+                                        </tbody></table>
+                                    </div>	
                                     
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
+                                </div> 
                                     
                                     
                                     
@@ -3181,6 +3178,135 @@ If SUW bypass is desired following an Enterprise Reset, this parameter must be i
                                     
                                     
                                     
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        <div class="">
+                                    
+                                    <h2 class="anchor" id="wake-on-touch-enabledisable"><a class="heading-anchor" href="#wake-on-touch-enabledisable"><span></span></a>Wake on Touch Enable/Disable</h2>
+                                    <p class=""></p><p>This is the On/Off switch for Wake On Touch, which controls the ability of the device to emerge from a low-power state when the screen is touched. </p><p></p>
+                                        <blockquote>
+                                        <p><b>Parm Name:</b> WakeOnTouch</p>
+                                        <!-- <p><b>Pivotal Parm:</b> Yes</p> -->
+                                        
+
+                                        
+                                        </blockquote>
+                                    
+                                    
+                                    <div>
+                                        <table class="table">
+                                            <tbody><tr>
+                                                <th>Option</th>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                           <!-- <th>Model</th> -->
+                                                <th>Note</th>
+                                                <th>Status</th>
+                                                <th>Requires</th>
+                                            </tr>
+                                            <tr data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="14.0" data-devicetype="A" data-api="" data-smartdoc="">
+                                                <td>0</td>
+                                                <td>Do Nothing</td>
+                                                <td>This value (or the absence of this parm from the XML) causes no change to device settings; any previously selected setting is retained.</td>
+                                                <td></td>
+
+                                                <td></td>
+
+
+                                        <!-- DEVICETYPE LOGIC FOR LIST TABLE --> 
+                                        
+<!--                                                <td> 
+ -->                                                    <!-- A -->
+<!--                                                     N/A on TC20/TC25
+                                                </td>
+ -->                                                
+                                                <td>
+                                                    
+
+                                                        <p>MX: 14.0+ </p>
+                                                    
+                                                </td> 
+                                                
+                                            </tr>
+                                            
+                                            <tr data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="14.0" data-devicetype="A" data-api="" data-smartdoc="">
+                                                <td>1</td>
+                                                <td>Enable</td>
+                                                <td>Allows device to wake from low-power state when the screen is touched.</td>
+                                                <td></td>
+
+                                                <td></td>
+
+
+                                        <!-- DEVICETYPE LOGIC FOR LIST TABLE --> 
+                                        
+<!--                                                <td> 
+ -->                                                    <!-- A -->
+<!--                                                     N/A on TC20/TC25
+                                                </td>
+ -->                                                
+                                                <td>
+                                                    
+
+                                                        <p>MX: 14.0+ </p>
+                                                    
+                                                </td> 
+                                                
+                                            </tr>
+                                            
+                                            <tr data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="14.0" data-devicetype="A" data-api="" data-smartdoc="">
+                                                <td>2</td>
+                                                <td>Disable</td>
+                                                <td>Prevents device from waking from low-power state when the screen is touched.</td>
+                                                <td></td>
+
+                                                <td></td>
+
+
+                                        <!-- DEVICETYPE LOGIC FOR LIST TABLE --> 
+                                        
+<!--                                                <td> 
+ -->                                                    <!-- A -->
+<!--                                                     N/A on TC20/TC25
+                                                </td>
+ -->                                                
+                                                <td>
+                                                    
+
+                                                        <p>MX: 14.0+ </p>
+                                                    
+                                                </td> 
+                                                
+                                            </tr>
+                                            
+                                            
+                                        </tbody></table>
+                                    </div>	
+                                    
+                                </div> 
+                                    
+                                    
+                                    
+                                    
+                                    
                                         <div class="">
                                     
                                     <h2 class="anchor" id="heater-action"><a class="heading-anchor" href="#heater-action"><span></span></a>Heater Action</h2>
@@ -3311,29 +3437,6 @@ If SUW bypass is desired following an Enterprise Reset, this parameter must be i
                                     </div>	
                                     
                                 </div> 
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                     
                                     
                                     
@@ -3543,6 +3646,11 @@ If SUW bypass is desired following an Enterprise Reset, this parameter must be i
                                     
                                     
                                     
+                                    
+                                    
+                                    
+                                    
+                                    
                                         <div class="" data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="7.1" data-api="" data-smartdoc="">
 
                                     <h2 class="anchor" id="heater-on-threshold"><a class="heading-anchor" href="#heater-on-threshold"><span></span></a>Heater-On Threshold</h2>
@@ -3575,6 +3683,15 @@ If SUW bypass is desired following an Enterprise Reset, this parameter must be i
                                     
                                     
                                 </div> 
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                     
                                     
                                     
@@ -3635,16 +3752,6 @@ If SUW bypass is desired following an Enterprise Reset, this parameter must be i
                                     
                                     
                                     
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                         <div class="" data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="7.1" data-api="" data-smartdoc="">
 
                                     <h2 class="anchor" id="auto-power-control-checkbox"><a class="heading-anchor" href="#auto-power-control-checkbox"><span></span></a>Auto Power Control (checkbox)</h2>
@@ -3672,11 +3779,6 @@ If SUW bypass is desired following an Enterprise Reset, this parameter must be i
                                     
                                     
                                 </div> 
-                                    
-                                    
-                                    
-                                    
-                                    
                                     
                                     
                                     
@@ -3862,6 +3964,15 @@ If SUW bypass is desired following an Enterprise Reset, this parameter must be i
                                     
                                     
                                     
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                         <div class="">
                                     
                                     <h2 class="anchor" id="auto-power-off"><a class="heading-anchor" href="#auto-power-off"><span></span></a>Auto Power-off</h2>
@@ -3943,6 +4054,20 @@ If SUW bypass is desired following an Enterprise Reset, this parameter must be i
                                     </div>	
                                     
                                 </div> 
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                     
                                     
                                     
@@ -4066,27 +4191,10 @@ If SUW bypass is desired following an Enterprise Reset, this parameter must be i
                                     
                                     
                                     
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                         <div class="">
                                     
                                     <h2 class="anchor" id="doze-mode-enabledisable"><a class="heading-anchor" href="#doze-mode-enabledisable"><span></span></a>Doze Mode Enable/Disable</h2>
-                                    <p class=""></p><p>This is the On/Off switch for Doze Mode energy saving features on the device. When Doze Mode is enabled, only apps specifically added to the "exemption whitelist" can prevent the device from entering this low-power state. Apps are added to the exemption whitelist using the <a href="/mx/appmgr">App Manager CSP</a>.</p><p></p>
+                                    <p class=""></p><p>This is the On/Off switch for Doze Mode energy saving features on the device. When Doze Mode is enabled, only apps specifically added to the "exemption whitelist" can <i><b>prevent</b></i> the device from entering this low-power state. Apps are added to the exemption whitelist using the <a href="/mx/appmgr/#prevent-doze-mode">App Manager &gt; Prevent Doze Mode</a> parameter.</p><p></p>
                                         <blockquote>
                                         <p><b>Parm Name:</b> DozeModeUsage</p>
                                         <!-- <p><b>Pivotal Parm:</b> Yes</p> -->
@@ -4190,6 +4298,10 @@ If SUW bypass is desired following an Enterprise Reset, this parameter must be i
                                     </div>	
                                     
                                 </div> 
+                                    
+                                    
+                                    
+                                    
                                     
                                     
                                     
@@ -4472,6 +4584,9 @@ If SUW bypass is desired following an Enterprise Reset, this parameter must be i
                                     
                                     
                                     
+                                    
+                                    
+                                    
                                         <div class="">
                                     
                                     <h2 class="anchor" id="wake-up-method"><a class="heading-anchor" href="#wake-up-method"><span></span></a>Wake-up Method</h2>
@@ -4584,9 +4699,6 @@ If SUW bypass is desired following an Enterprise Reset, this parameter must be i
                                     </div>	
                                     
                                 </div> 
-                                    
-                                    
-                                    
                                     
                                     
                                     
@@ -5003,6 +5115,33 @@ info: Supported on SDM660-platform devices with MX 9.2 or later only. Otherwise 
                                                 
                                             </tr>
                                             
+                                            <tr data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="14.0" data-devicetype="A" data-api="" data-smartdoc="">
+                                                <td>7</td>
+                                                <td>SCREEN_DOUBLE_TAP</td>
+                                                <td>Selects a double-tap of the device screen.</td>
+                                                <td>
+                                    <i class="fa fa-info-circle" style="color:#108CED;" data-toggle="tooltip" data-placement="top" title="Supported only on ET40, ET45, TC15, TN28 and KC50 devices." aria-hidden="true"></i>
+                                    </td>
+
+                                                <td></td>
+
+
+                                        <!-- DEVICETYPE LOGIC FOR LIST TABLE --> 
+                                        
+<!--                                                <td> 
+ -->                                                    <!-- A -->
+<!--                                                     N/A on TC20/TC25
+                                                </td>
+ -->                                                
+                                                <td>
+                                                    
+
+                                                        <p>MX: 14.0+ </p>
+                                                    
+                                                </td> 
+                                                
+                                            </tr>
+                                            
                                             <tr data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="9.2" data-devicetype="A" data-api="" data-smartdoc="">
                                                 <td>86</td>
                                                 <td>Custom</td>
@@ -5033,6 +5172,9 @@ info: Supported on SDM660-platform devices with MX 9.2 or later only. Otherwise 
                                     </div>	
                                     
                                 </div> 
+                                    
+                                    
+                                    
                                     
                                     
                                         <div class="" data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="9.2" data-api="" data-smartdoc="">
@@ -5121,18 +5263,10 @@ info: Supported on SDM660-platform devices with MX 9.2 or later only. Otherwise 
                                     
                                     
                                     
-                                    
-                                    
-                                    
                                         <div class="">
                                     
                                     <h2 class="anchor" id="authorization-type"><a class="heading-anchor" href="#authorization-type"><span></span></a>Authorization Type</h2>
-                                    <p class="">
-
-        </p><p>Used to select the Authorization Type required for making the Upgrade/Downgrade Streaming server connection. </p>
-
-
-<p></p>
+                                    <p class=""></p><p>Used to select the Authorization Type required for making the Upgrade/Downgrade Streaming server connection. </p><p></p>
                                         <blockquote>
                                         <p><b>Note:</b> Supported only on devices running Android 8 and 10 or later.</p>
                                         <p><b>Shown if:</b> The Reset Action is "OS Upgrade Streaming" or "OS Downgrade Streaming"</p>
@@ -5264,6 +5398,7 @@ info: Supported on SDM660-platform devices with MX 9.2 or later only. Otherwise 
                                     
                                     
                                     
+                                    
                                         <div class="" data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="10.1" data-api="26" data-smartdoc="">
 
                                     <h2 class="anchor" id="zebra-authentication-token"><a class="heading-anchor" href="#zebra-authentication-token"><span></span></a>Zebra Authentication Token</h2>
@@ -5390,6 +5525,7 @@ info: Supported on SDM660-platform devices with MX 9.2 or later only. Otherwise 
                                     
                                     
                                     
+                                    
                                         <div class="" data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="10.1" data-api="26" data-smartdoc="">
 
                                     <h2 class="anchor" id="custom-authorization-header"><a class="heading-anchor" href="#custom-authorization-header"><span></span></a>Custom Authorization Header</h2>
@@ -5439,6 +5575,8 @@ info: Supported on SDM660-platform devices with MX 9.2 or later only. Otherwise 
                                     
                                     
                                     
+                                    
+                                    
                                         <div class="">
                                     
                                     <h2 class="anchor" id="ram-on-disk"><a class="heading-anchor" href="#ram-on-disk"><span></span></a>RAM on Disk</h2>
@@ -5448,7 +5586,7 @@ info: Supported on SDM660-platform devices with MX 9.2 or later only. Otherwise 
 <i class="fa fa-exclamation-triangle" style="color:#FFA500;"></i> <b>NOTE</b>: Enabling RAM On Disk triggers an immediate reboot of the device unless suppressed using the [Suppress Reboot parameter](#suppress-reboot)</b>. 
 -->
 
-<h4 id="iclassfafaexclamationcirclestylecolorff0000iplatformnotes" class="anchor"><a class="heading-anchor" href="#iclassfafaexclamationcirclestylecolorff0000iplatformnotes"><span></span></a><i class="fa fa-exclamation-circle" style="color:#FF0000;"></i> Platform Notes</h4>
+<h4 id="iclassfafaexclamationcirclestylecolorff0000iplatformnotes-1" class="anchor"><a class="heading-anchor" href="#iclassfafaexclamationcirclestylecolorff0000iplatformnotes-1"><span></span></a><i class="fa fa-exclamation-circle" style="color:#FF0000;"></i> Platform Notes</h4>
 
 <ul>
 <li><font size="3" color="Red">This parameter is supported <u><b>ONLY</b></u> on devices running Android 14 or later.</font></li>
@@ -5759,6 +5897,11 @@ info: Supported on SDM660-platform devices with MX 9.2 or later only. Otherwise 
                                     
                                     
                                     
+                                    
+                                    
+                                    
+                                    
+                                    
                                         <div class="" data-osx="" data-osx-end="" data-osx-specific-list="" data-osx-specific="" data-osx-exclude="" data-osx-exclude-end="" data-mx="13.4" data-api="34" data-smartdoc="">
 
                                     <h2 class="anchor" id="ram-on-disk-custom-size"><a class="heading-anchor" href="#ram-on-disk-custom-size"><span></span></a>RAM On Disk Custom Size</h2>
@@ -5788,13 +5931,6 @@ info: Supported on SDM660-platform devices with MX 9.2 or later only. Otherwise 
                                     
                                     
                                 </div> 
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                     
                                     
                                     
@@ -5911,6 +6047,19 @@ info: Supported on SDM660-platform devices with MX 9.2 or later only. Otherwise 
                                     </div>	
                                     
                                 </div> 
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                     
                                     
                                     
@@ -6397,6 +6546,17 @@ info: Supported on SDM660-platform devices with MX 9.2 or later only. Otherwise 
                                     
                                     
                                     
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                 </div><!--/.container-->
                                 
                             </section><!--/#services-->
@@ -6416,6 +6576,22 @@ filtering
         csp: "powermgr",
         name: "Power Manager",
         parms: [
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     
                     
                     
@@ -6789,15 +6965,25 @@ filtering
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                    {
+                        requires: {
+                            osx: "",
+                            osxEnd: "",
+                            mx: "4.1",
+                            api: "16",
+                            osxSpecific: "",
+                            osxSpecificList: "",
+                            osxExclude: "",
+                            osxExcludeEnd: "",
+                            devicetype: "A,B"
+                        },
+
+                            presentif: "The Reset Action is &quot;OS Update&quot; or &quot;OS Upgrade&quot; or &quot;OS Downgrade&quot;",
+                            name: "ZipFile",
+                            pivotal: "No",
+                        
+                        
+                    },
                     
                     
                     {
@@ -6822,41 +7008,6 @@ filtering
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    {
-                        requires: {
-                            osx: "",
-                            osxEnd: "",
-                            mx: "4.1",
-                            api: "16",
-                            osxSpecific: "",
-                            osxSpecificList: "",
-                            osxExclude: "",
-                            osxExcludeEnd: "",
-                            devicetype: "A,B"
-                        },
-
-                            presentif: "The Reset Action is &quot;OS Update&quot; or &quot;OS Upgrade&quot; or &quot;OS Downgrade&quot;",
-                            name: "ZipFile",
-                            pivotal: "No",
-                        
-                        
-                    },
                     
                     
                     
@@ -6943,7 +7094,7 @@ filtering
                                         osx: "",
                                         osxEnd: "",
                                         mx: "13.1",
-                                        api: "33",
+                                        api: "30",
                                         osxSpecific: "",
                                         osxSpecificList: "",
                                         osxExclude: "",
@@ -6960,7 +7111,7 @@ filtering
                                         osx: "",
                                         osxEnd: "",
                                         mx: "13.1",
-                                        api: "33",
+                                        api: "30",
                                         osxSpecific: "",
                                         osxSpecificList: "",
                                         osxExclude: "",
@@ -6977,7 +7128,7 @@ filtering
                                         osx: "",
                                         osxEnd: "",
                                         mx: "13.1",
-                                        api: "33",
+                                        api: "30",
                                         osxSpecific: "",
                                         osxSpecificList: "",
                                         osxExclude: "",
@@ -6988,6 +7139,11 @@ filtering
                         
                         ]
                     },
+                    
+                    
+                    
+                    
+                    
                     
                     
                     
@@ -7215,66 +7371,22 @@ filtering
                     
                     
                     
-                    {
-                            presentif: "The Reset Action is &quot;OS Upgrade&quot; OR &quot;OS Upgrade Streaming&quot;",
-                            name: "SuppressReboot",
-                            pivotal: "No",
-                        
-                        
-                        listitems: [
-                                {
-                                    code: "0",
-                                    name: "Do Nothing",
-                                    description: "This value (or the absence of this parm from the XML) causes no action on the device; the default value is used.",
-                                    requires: {
-                                        osx: "",
-                                        osxEnd: "",
-                                        mx: "8.1",
-                                        api: "",
-                                        osxSpecific: "",
-                                        osxSpecificList: "",
-                                        osxExclude: "",
-                                        osxExcludeEnd: ""
-                                    },
-
-                                },
-                        
-                                {
-                                    code: "1",
-                                    name: "true",
-                                    description: "Prevents the device from rebooting following an OS Upgrade or OS Upgrade Streaming Action.",
-                                    requires: {
-                                        osx: "",
-                                        osxEnd: "",
-                                        mx: "8.1",
-                                        api: "",
-                                        osxSpecific: "",
-                                        osxSpecificList: "",
-                                        osxExclude: "",
-                                        osxExcludeEnd: ""
-                                    },
-
-                                },
-                        
-                                {
-                                    code: "2",
-                                    name: "false",
-                                    description: "Allows the device to reboot following an OS Upgrade or OS Upgrade Streaming Action.",
-                                    requires: {
-                                        osx: "",
-                                        osxEnd: "",
-                                        mx: "8.1",
-                                        api: "",
-                                        osxSpecific: "",
-                                        osxSpecificList: "",
-                                        osxExclude: "",
-                                        osxExcludeEnd: ""
-                                    },
-
-                                },
-                        
-                        ]
-                    },
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     
                     
                     
@@ -7344,22 +7456,66 @@ filtering
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                    {
+                            presentif: "The Reset Action is &quot;OS Upgrade&quot; OR &quot;OS Upgrade Streaming&quot;",
+                            name: "SuppressReboot",
+                            pivotal: "No",
+                        
+                        
+                        listitems: [
+                                {
+                                    code: "0",
+                                    name: "Do Nothing",
+                                    description: "This value (or the absence of this parm from the XML) causes no action on the device; the default value is used.",
+                                    requires: {
+                                        osx: "",
+                                        osxEnd: "",
+                                        mx: "8.1",
+                                        api: "",
+                                        osxSpecific: "",
+                                        osxSpecificList: "",
+                                        osxExclude: "",
+                                        osxExcludeEnd: ""
+                                    },
+
+                                },
+                        
+                                {
+                                    code: "1",
+                                    name: "true",
+                                    description: "Prevents the device from rebooting following an OS Upgrade or OS Upgrade Streaming Action.",
+                                    requires: {
+                                        osx: "",
+                                        osxEnd: "",
+                                        mx: "8.1",
+                                        api: "",
+                                        osxSpecific: "",
+                                        osxSpecificList: "",
+                                        osxExclude: "",
+                                        osxExcludeEnd: ""
+                                    },
+
+                                },
+                        
+                                {
+                                    code: "2",
+                                    name: "false",
+                                    description: "Allows the device to reboot following an OS Upgrade or OS Upgrade Streaming Action.",
+                                    requires: {
+                                        osx: "",
+                                        osxEnd: "",
+                                        mx: "8.1",
+                                        api: "",
+                                        osxSpecific: "",
+                                        osxSpecificList: "",
+                                        osxExclude: "",
+                                        osxExcludeEnd: ""
+                                    },
+
+                                },
+                        
+                        ]
+                    },
                     
                     
                     
@@ -7555,6 +7711,91 @@ filtering
                     
                     
                     
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    {
+                            presentif: "",
+                            name: "WakeOnTouch",
+                            pivotal: "Yes",
+                        
+                        
+                        listitems: [
+                                {
+                                    code: "0",
+                                    name: "Do Nothing",
+                                    description: "This value (or the absence of this parm from the XML) causes no change to device settings; any previously selected setting is retained.",
+                                    requires: {
+                                        osx: "",
+                                        osxEnd: "",
+                                        mx: "14.0",
+                                        api: "",
+                                        osxSpecific: "",
+                                        osxSpecificList: "",
+                                        osxExclude: "",
+                                        osxExcludeEnd: ""
+                                    },
+
+                                },
+                        
+                                {
+                                    code: "1",
+                                    name: "Enable",
+                                    description: "Allows device to wake from low-power state when the screen is touched.",
+                                    requires: {
+                                        osx: "",
+                                        osxEnd: "",
+                                        mx: "14.0",
+                                        api: "",
+                                        osxSpecific: "",
+                                        osxSpecificList: "",
+                                        osxExclude: "",
+                                        osxExcludeEnd: ""
+                                    },
+
+                                },
+                        
+                                {
+                                    code: "2",
+                                    name: "Disable",
+                                    description: "Prevents device from waking from low-power state when the screen is touched.",
+                                    requires: {
+                                        osx: "",
+                                        osxEnd: "",
+                                        mx: "14.0",
+                                        api: "",
+                                        osxSpecific: "",
+                                        osxSpecificList: "",
+                                        osxExclude: "",
+                                        osxExcludeEnd: ""
+                                    },
+
+                                },
+                        
+                        ]
+                    },
+                    
+                    
+                    
+                    
+                    
                     {
                             presentif: "",
                             name: "HeaterAction",
@@ -7632,29 +7873,6 @@ filtering
                         
                         ]
                     },
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     
                     
                     
@@ -7791,6 +8009,11 @@ filtering
                     
                     
                     
+                    
+                    
+                    
+                    
+                    
                     {
                         requires: {
                             osx: "",
@@ -7810,6 +8033,15 @@ filtering
                         
                         
                     },
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     
                     
                     
@@ -7857,16 +8089,6 @@ filtering
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     {
                         requires: {
                             osx: "",
@@ -7886,11 +8108,6 @@ filtering
                         
                         
                     },
-                    
-                    
-                    
-                    
-                    
                     
                     
                     
@@ -8038,6 +8255,15 @@ filtering
                     
                     
                     
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     {
                             presentif: "The Auto-Power Control is &quot;Checked&quot;",
                             name: "AutoPowerOff",
@@ -8121,6 +8347,20 @@ filtering
                     
                     
                     
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     {
                         requires: {
                             osx: "",
@@ -8140,23 +8380,6 @@ filtering
                         
                         
                     },
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     
                     
                     
@@ -8270,6 +8493,10 @@ filtering
                         
                         ]
                     },
+                    
+                    
+                    
+                    
                     
                     
                     
@@ -8435,6 +8662,9 @@ filtering
                     
                     
                     
+                    
+                    
+                    
                     {
                             presentif: "",
                             name: "WakeUpMethods",
@@ -8495,9 +8725,6 @@ filtering
                         
                         ]
                     },
-                    
-                    
-                    
                     
                     
                     
@@ -8748,6 +8975,23 @@ filtering
                                 },
                         
                                 {
+                                    code: "7",
+                                    name: "SCREEN_DOUBLE_TAP",
+                                    description: "Selects a double-tap of the device screen.",
+                                    requires: {
+                                        osx: "",
+                                        osxEnd: "",
+                                        mx: "14.0",
+                                        api: "",
+                                        osxSpecific: "",
+                                        osxSpecificList: "",
+                                        osxExclude: "",
+                                        osxExcludeEnd: ""
+                                    },
+
+                                },
+                        
+                                {
                                     code: "86",
                                     name: "Custom",
                                     description: "Allows use of a custom key identifier. See Custom Wake-up Key Identifier parameter.",
@@ -8766,6 +9010,9 @@ filtering
                         
                         ]
                     },
+                    
+                    
+                    
                     
                     
                     {
@@ -8811,9 +9058,6 @@ filtering
                         
                         
                     },
-                    
-                    
-                    
                     
                     
                     
@@ -8914,6 +9158,7 @@ filtering
                     
                     
                     
+                    
                     {
                         requires: {
                             osx: "",
@@ -9006,6 +9251,7 @@ filtering
                     
                     
                     
+                    
                     {
                         requires: {
                             osx: "",
@@ -9025,6 +9271,8 @@ filtering
                         
                         
                     },
+                    
+                    
                     
                     
                     
@@ -9235,6 +9483,11 @@ filtering
                     
                     
                     
+                    
+                    
+                    
+                    
+                    
                     {
                         requires: {
                             osx: "",
@@ -9254,13 +9507,6 @@ filtering
                         
                         
                     },
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     
                     
                     
@@ -9597,6 +9843,30 @@ filtering
                     
                     
                     
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
         ]
     }
 
@@ -9614,7 +9884,7 @@ u {color: #45AED6;}
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-10">
-                        ZEBRA and the stylized Zebra head are trademarks of Zebra Technologies Corp., registered in many jurisdictions worldwide. All other trademarks are the property of their respective owners. ©2024 Zebra Technologies Corp. and/or its affiliates.<br> <a href="https://www.zebra.com/us/en/about-zebra/company-information/legal.html">Legal</a> | <a href="https://www.zebra.com/us/en/about-zebra/company-information/compliance/information-privacy/terms-of-use.html">Terms of Use</a> | <a href="https://www.zebra.com/us/en/about-zebra/company-information/legal/privacy-statement.html">Privacy Policy</a> 
+                        ZEBRA and the stylized Zebra head are trademarks of Zebra Technologies Corp., registered in many jurisdictions worldwide. All other trademarks are the property of their respective owners. ©2025 Zebra Technologies Corp. and/or its affiliates.<br> <a href="https://www.zebra.com/us/en/about-zebra/company-information/legal.html">Legal</a> | <a href="https://www.zebra.com/us/en/about-zebra/company-information/compliance/information-privacy/terms-of-use.html">Terms of Use</a> | <a href="https://www.zebra.com/us/en/about-zebra/company-information/legal/privacy-statement.html">Privacy Policy</a> 
                     </div>
                      <!--
                      <div class="col-sm-2">

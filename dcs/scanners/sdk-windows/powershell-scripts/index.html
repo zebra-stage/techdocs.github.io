@@ -8,7 +8,7 @@
         <meta name="google-site-verification" content="i4B78BrWnNy8ShJwe5feRW3jO3HE6gfYlYqYbxfl8yY">
         <meta name="msvalidate.01" content="6B651B00161BCE79B8950AC09D5C4C75">
         <meta title="About Scanner SDK for Windows">
-        <title>TWAIN Driver for Windows - About - Zebra Technologies</title>
+        <title>Scanner SDK for Windows - About - Zebra Technologies</title>
         <!-- core CSS -->
         <link rel="stylesheet" href="/home/css/uikit.min.css" />
         <link rel="stylesheet" href="/home/css/style.css" />
@@ -32,6 +32,7 @@
         <script src="//load.sumome.com/" data-sumo-site-id="699cb66cf4dc59352efb45705526d15cbe314e1cd43f7761b94d96f3cf7338e8" async="async"></script>
         <link rel="shortcut icon" href="/favicon.ico">
         <script src="/js/jquery.js"></script>
+        <script src="../../dcs_script.js"></script>
     </head>
     <body id="home" class="homepage" data-spy="scroll" data-offset="100" data-target="#toc">
         <header id="header">
@@ -54,25 +55,31 @@
                             <li>
                                 <a href="/dcs/scanners">Barcode Scanner Tools</a>
                             </li>
-                            <p class="navbar-text">TWAIN Driver for Windows</p>
+                            <p class="navbar-text">Scanner SDK for Windows</p>
                         </ul>
                     </div>
                     <div class="collapse navbar-collapse navbar-right">
                         <ul class="nav navbar-nav">
                             <li>
-                                <a href="/dcs/scanners/twain/about/">About</a>
+                                <a href="/dcs/scanners/sdk-windows/about">About</a>
                             </li>
                             <li>
-                                <a href="/dcs/scanners/twain/setup/">Setup</a>
+                                <a href="/dcs/scanners/sdk-windows/setup/">Setup</a>
                             </li>
                             <li>
-                                <a href="/dcs/scanners/twain/sdk/">SDK</a>
+                                <a href="/dcs/scanners/sdk-windows/sample-apps/">Sample Apps</a>
                             </li>
                             <li>
-                                <a href="/dcs/scanners/twain/sample-apps/">Sample Apps</a>
+                                <a href="/dcs/scanners/sdk-windows/samples/">Source Codes</a>
                             </li>
                             <li>
-                                <a href="/dcs/scanners/twain/download/">
+                                <a href="/dcs/scanners/sdk-windows/appendix/">Appendix</a>
+                            </li>
+                            <li>
+                                <a href="/dcs/scanners/sdk-windows/api/">API</a>
+                            </li>
+                            <li>
+                                <a href="/dcs/scanners/sdk-windows/download">
                                     <i class="fa fa-download"></i>
                                 </a>
                             </li>
@@ -89,7 +96,7 @@
                             <div class="col-sm-3 hidden-sm hidden-xs" id="sidebar">
                                 <nav id="toc" data-toggle="toc" data-spy="affix" style="height: 75%; max-width: 225px; overflow-y: auto; ">
                                     <ul class="nav">
-                                        <li><strong>TWAIN Driver for Windows</strong></li>
+                                        <li><strong>Scanner SDK Usage via Windows Powershell</strong></li>
                                     </ul>
                                 </nav>                    
                                 <script type="text/javascript">
@@ -116,8 +123,8 @@
                                     <div class="col-sm-12">
                                         <section id="cta" class="wow fadeIn">
                                             <div class="">
-                                                <h1 id="about-twain-driver" class="anchor">
-                                                    <a class="heading-anchor" href="#about-twain-driver"><span></span></a>TWAIN Driver for Windows
+                                                <h1 id="scanner-sdk-powershell-scripts" class="anchor">
+                                                    <a class="heading-anchor" href="#scanner-sdk-powershell-scripts"><span></span></a>Scanner SDK Usage via Windows Powershell
                                                 </h1>
                                             </div>
                                         </section>                    
@@ -131,26 +138,85 @@
                                                 <div class="">
                                                     <h2 id="overview" class="anchor"><a class="heading-anchor" href="#overview"><span></span></a>Overview</h2>
 
-                                                    <p>The Zebra TWAIN Driver for Windows enables an imaging scanner to capture and transfer images to a TWAIN-compliant application. This driver conforms to portions of the TWAIN specification version 2.1 and provides an interface for querying and setting TWAIN capabilities.</p>
-                                                    
-                                                    <p>The Zebra TWAIN driver provides two interfaces:</p>
+                                                    <p>API calls to the Scanner SDK for Windows are accessible through the Microsoft Windows native PowerShell scripting language. The Zebra CoreScanner service must be installed and running to support method calls from PowerShell.</p>
 
-                                                    <ul>
-                                                        <li>A programmatic (non Graphical User Interface [GUI]) interface that supports capabilities described in the TWAIN version 2.1 specification in addition to custom TWAIN capabilities specific to Zebra imaging scanners.</li>
-                                                        <li>A GUI that is accessible through TWAIN-compliant applications.</li>
-                                                    </ul>
+                                                    <p>As with C++ and C# development, a CoreScanner instance must first be opened, followed by the GetScanners method call to discover connected scanner devices.</p>
 
-                                                    <div style="display: block; margin: 0 auto; text-align: center;">
-                                                        <img src="../../images/twain/twain-001-ui-only.png" style="display: block; margin: 0 auto;"><strong>Figure 1:</strong> GUI for the Zebra TWAIN Driver
+                                                    <p>Other API methods can then be called by PowerShell via each device's ScannerID using the syntax described in the <a href="../api/#examples" target="_blank">Using the Methods</a> section.</p>
+
+                                                    <h2 id="list-of-powershell-scripts" class="anchor"><a class="heading-anchor" href="#list-of-powershell-scripts"><span></span></a>Catalog of PowerShell Scripts</h2>
+
+                                                    <p>This collection provides a comprehensive directory of PowerShell scripts specifically designed for managing Zebra Barcode Scanners.</p>
+
+                                                    <h3 id="powershell-scripts-asset-info" class="anchor"><a class="heading-anchor" href="#powershell-scripts-asset-info"><span></span></a>Retrieve Asset Information</h3>
+
+                                                    <p>Retrieve detailed asset information for the scanners currently connected to the system.</p>
+
+                                                    <div class="code-container">
+                                                        <button class="button copy-button" onclick="copyCode(this)">Copy</button>
+                                                        <button class="button download-button" onclick="downloadFile('CoreScanner_AssetInfo.ps1')">
+                                                            <img src="../../images/common/download.png">
+                                                        </button>                                     
+<pre class="prettyprint">
+<code id="code-snippet">
+# Description : Query the asset information of the connected scanners.
+# Support PSVersion 5+.
+# Copyright : ©2025 Zebra Technologies Corp. and/or its affiliates.
+
+# Enable logging.
+Start-Transcript -Append -Path $PSScriptRoot"\CoreScanner_AssetInfo.log.txt"
+
+# Process GetScanners out XML and list the asset information
+Function Process-Out-XML ($XML)
+{
+    $XmlContent = New-Object -TypeName System.Xml.XmlDocument
+    $XmlContent.LoadXml($XML)
+
+    # Pipe asset information
+    $XmlContent.scanners.scanner | Format-Table -AutoSize @{Name = 'Scanner ID'; Expression = {$_.scannerID}},
+                                                            @{Name = 'Host Mode'; Expression = {$_.type}}, 
+                                                            @{Name = 'Model Number'; Expression = {$_.modelnumber}},
+                                                            @{Name = 'Serial Number'; Expression = {$_.serialnumber}},
+                                                            @{Name = 'Date of Manufacture'; Expression = {$_.DoM}},
+                                                            @{Name = 'Scanner Firmware Version'; Expression = {$_.firmware}}
+}
+
+# Main script to execute
+Invoke-Command -ScriptBlock {
+    # Initialize CoreScanner
+    Write-Output "$(Get-Date) Loading Interop.CoreScanner.dll";		
+    [System.Reflection.Assembly]::LoadFile("C:\Program Files\Zebra Technologies\Barcode Scanners\Common\Interop.CoreScanner.dll")|Out-Null;		
+    $ScannerObject = New-Object Interop.CoreScanner.CCoreScannerClass;
+
+    # Initialize
+    $Status = 0;
+    $AppHandle = 0;
+    $OutXML = "";
+    $ScannerCount = 0;
+    
+    # For all scanners, set to 1
+    $ScannerTypes = New-Object int16[] 11;
+    $ScannerTypes[0] = 1;
+    
+    # For all scanner types, set to 1
+    $NumberOfScannerTypes = [int16] 1;
+
+    $ScannerIDList = New-Object int16[] 255;
+    
+    # Invokde Open API		
+    $ScannerObject.Open($AppHandle, $ScannerTypes, $NumberOfScannerTypes, [ref] $Status);
+    Write-Output "$(Get-Date) Scanner.Open() Status: $Status";
+
+    # Invoke GetScanners API, process XML to query scanners
+    $ScannerObject.GetScanners([ref] $ScannerCount, $ScannerIDList, [ref] $OutXML, [ref] $Status)
+    Write-Output "$(Get-Date) GetScanners API Invoke Status: $Status";
+    Write-Output "$(Get-Date) Number of Connected Scanner(s) to the Host: $ScannerCount";
+    
+    Process-Out-XML -XML $OutXML;
+}
+</code>
+</pre>
                                                     </div>
-
-                                                    <p>For more details, visit <a href="http://www.twain.org/" target="_blank">www.twain.org</a></p>
-                                                    
-                                                    <hr>
-
-                                                    <h2 id="version-history" class="anchor"><a class="heading-anchor" href="#version-history"><span></span></a>Version History</h2>
-                                                    
-                                                    <p>Please refer Barcode Scanner SDK for <a href="../../sdk-windows/about/index.html#version-history">Windows</a> release notes for more details.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -178,7 +244,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-10">
-                        ZEBRA and the stylized Zebra head are trademarks of Zebra Technologies Corp., registered in many jurisdictions worldwide. All other trademarks are the property of their respective owners. &copy;2025 Zebra Technologies Corp. and/or its affiliates. <a href="https://www.zebra.com/us/en/about-zebra/company-information/legal.html">Legal</a> | <a href="https://www.zebra.com/us/en/about-zebra/company-information/legal/terms-of-use.html">Terms of Use</a> | <a href="https://www.zebra.com/us/en/about-zebra/company-information/legal/privacy-statement.html">Privacy Policy</a>
+                        ZEBRA and the stylized Zebra head are trademarks of Zebra Technologies Corp., registered in many jurisdictions worldwide. All other trademarks are the property of their respective owners. &copy;2025 Zebra Technologies Corp. and/or its affiliates. <a href="https://www.zebra.com/us/en/about-zebra/company-information/legal.html">Legal</a> | <a href="https://www.zebra.com/us/en/about-zebra/company-information/legal/terms-of-use.html">Terms of Use</a> | <a href="https://www.zebra.com/us/en/about-zebra/company-information/legal/privacy-statement.html">Privacy Policy</a> 
                     </div>
                     <!--<div class="col-sm-2">
                         <ul class="social-icons">
